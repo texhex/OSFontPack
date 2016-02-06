@@ -3,11 +3,16 @@
 #pragma option -v+
 #pragma verboselevel 9
 
-#define public Version '0.3.3'
+//Disable the following line when releasing the setup
+//----------------------------
+#define DEBUG
+//----------------------------
+
+#define public Version '0.3.5'
 
 
 //Definition for Hack Font
-#define hack_sourcefolder 'fonts\Hack_v2_010'
+#define hack_sourcefolder 'Hack_v2_010'
 
 #dim hack_filenames[4]
 #define hack_filenames[0] 'Hack-Bold'
@@ -21,22 +26,6 @@
 #define hack_fontnames[2] 'Hack Regular (OpenType)'
 #define hack_fontnames[3] 'Hack Italic (OpenType)'
 
-
-
-;#define public OutfileFilename 'FontsEx_' + ProgramVersion + '_A'
-
-;#define public StartFileCommand 'i_view32.exe ""%1""'
-
-;Placeholder to define the macro, will be overwritten later
-;#define public FileExtension "XXXTestOnlyXXX"
-
-;#sub RegFileAssoc
-;   Root: HKCR; Subkey: "{#FileExtension}"; ValueType: string; ValueName: ; ValueData: "IrfanViewDefaultFile";
-;   Root: HKCR; Subkey: "{#FileExtension}\shell"; ValueType: string; ValueName: ; ValueData: "open";
-;   Root: HKCR; Subkey: "{#FileExtension}\shell\open"; ValueType: string; ValueName: ; ValueData: "&Open";
-;   Root: HKCR; Subkey: "{#FileExtension}\shell\open\command"; ValueType: string; ValueName: ; ValueData: "{#StartFileCommand}";
-;   Root: HKCR; Subkey: "{#FileExtension}\OpenWithProgIds"; ValueType: string; ValueName: "IrfanViewDefaultFile" ; ValueData: ""
-;#endsub
 
 
 ;General procedure
@@ -63,7 +52,7 @@ AppComments=Installs several open source fonts
 DefaultDirName={pf}\Open Source Font Pack\
 DirExistsWarning=no
 
-;Always create a log to aid trouble shooting. The file is created as:  
+;Always create a log to aid troubleshooting. The file is created as:  
 ;C:\Users\<YourUsername>\AppData\Local\Temp\Setup Log Year-Month-Day #XXX.txt
 SetupLogging=Yes
 
@@ -85,31 +74,48 @@ SolidCompression=yes
 
 PrivilegesRequired=admin
 
+;Only include LicenseFile and InfoBeforeFile when using a release build
+#ifndef DEBUG
 ;Might be disabled later on
-;IGNORED FOR DEVELOPMENT; DisableWelcomePage=no
+DisableWelcomePage=no
 ;License information
-;IGNORED FOR DEVELOPMENT; ;LicenseFile=licenses\license.txt
+LicenseFile=licenses\license.txt
 ;readme
-;IGNORED FOR DEVELOPMENT; InfoBeforeFile=readme.md
+InfoBeforeFile=readme.md
+#endif
 
 ;Ignore some screens
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 AllowCancelDuringInstall=False
 
+[Types]
+Name: "full"; Description: "Full: Install all fonts"
+Name: "custom"; Description: "Custom: Select fonts to install"; Flags: iscustom
+
+[Components]
+Name: "hack"; Description: "Hack by Christopher Simpkins"; Types: full; Flags: disablenouninstallwarning;
 
 
 [Files]
 ;Copy license files - always copied
 Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
 
-;Copy hack to internal temp folder to perform SHA1 file hash check
+;Copy Hack font files to internal temp folder to perform SHA1 file hash check
 #define i 0
 #sub hack_files_out
-  Source: "{#hack_sourcefolder}\{#hack_filenames[i]}.ttf"; DestDir: "{tmp}"; Flags: ignoreversion; Check: AddTempFontFile('{tmp}\{#hack_filenames[i]}.ttf')
+  Source: "fonts\{#hack_sourcefolder}\{#hack_filenames[i]}.ttf"; DestDir: "{tmp}"; Flags: ignoreversion; Components: hack; AfterInstall: AddTempFontFile 
 #endsub
 #for {i = 0; i < DimOf(hack_filenames); i++} hack_files_out
 #undef i
+
+
+;Now check which font we should install (if any) by checking the hash for the copied files to the files found in {fonts}
+;For this we are using a placeholder file that is only installed to {tmp} 
+;It will be deleted at the end of the setup
+Source: "src\CHECK FONT FILES"; DestDir: "{tmp}"; Flags: ignoreversion; AfterInstall: CheckFontFiles; 
+
+
 
 ;Source: "OZHANDIN.TTF"; DestDir: "{fonts}"; FontInstall: "Oz Handicraft BT"; Flags:  ignoreversion fontisnttruetype restartreplace;
 
@@ -135,31 +141,66 @@ Type: files; Name: "{app}\InstallInfo.ini"
 var
   //Contains the full filename (in Setup TEMP) for the fonts that are shpuld be installed
   FontFilesInTempFolder: array of string;
+  FontFilesInTempFolder_HashValues: array of string;
+  FontFilesInWindows_HashValue: array of string;
 
 
-
-//Called for each font copied to {TMP}
-function AddTempFontFile(filename: String): Boolean;
+//Called for each font file extracted to {tmp}
+procedure AddTempFontFile();
 var
  fullFileName:string;
- hashvalue:string;
- arraysize:integer;
+ arraySize:integer;
 begin
-  fullfilename:=ExpandConstant(filename);
+  fullfilename:=ExpandConstant(CurrentFileName);
   log('Added file to TEMP list: ' + fullFileName);
 
-  arraysize:=GetArrayLength(FontFilesInTempFolder);
-  SetArrayLength(FontFilesInTempFolder, arraysize+1);
+  arraySize:=GetArrayLength(FontFilesInTempFolder);
+  SetArrayLength(FontFilesInTempFolder, arraySize+1);
 
   //Arrays are zero based, so the first element is 0. Therefore just arraysize, not arraysize+1
-  FontFilesInTempFolder[arraysize]:=fullFileName;   
-
-  //hashvalue:=GetSHA1OfFile(fullfilename);
-  //log('     ' + hashvalue);
-    
-  result:=true;
+  FontFilesInTempFolder[arraySize]:=fullFileName;   
 end;
 
+
+//Compare the files extracted to {tmp} to the font current font in {fonts}
+//Since InnoSetup does not have support for TTF version check, we use SHA1 hashes for this
+//NOTE: If a user has 
+procedure CheckFontFiles();
+var
+ i:integer;
+ curFontFile:string;
+ curFontFileWindows:string;
+begin
+ log('CheckFontFiles() called...');
+
+ //Resize the arrays so all of them have the same size
+ SetArrayLength(FontFilesInTempFolder_HashValues, GetArrayLength(FontFilesInTempFolder));
+ SetArrayLength(FontFilesInWindows_HashValue, GetArrayLength(FontFilesInTempFolder));
+
+ for i := 0 to GetArrayLength(FontFilesInTempFolder)-1 do begin
+     //Extract just the filename of the current font
+     curFontFile:=ExtractFileName(FontFilesInTempFolder[i]);
+
+     log('SHA1 hash check of '+curFontFile);
+      
+     //Store the hash of the file in TMP
+     FontFilesInTempFolder_HashValues[i]:=GetSHA1OfFile(FontFilesInTempFolder[i]);
+     log('   File from SETUP:  ' +  FontFilesInTempFolder_HashValues[i]);
+     
+     curFontFileWindows:=ExpandConstant('{fonts}\'+curFontFile);
+
+     //Check the windows font folder for this entry and get the hash
+     if FileExists(curFontFileWindows) then begin
+        FontFilesInWindows_HashValue[i]:=GetSHA1OfFile(curFontFileWindows);
+     end else begin
+        FontFilesInWindows_HashValue[i]:='-NOT FOUND-';
+     end;
+     
+     log('   File in FONTS  :  ' +  FontFilesInWindows_HashValue[i]);
+ end;
+
+ Sleep(2000);
+end;
 
 
 
