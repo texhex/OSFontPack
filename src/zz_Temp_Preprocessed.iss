@@ -42,8 +42,8 @@ AppId=OSFontPack
 SetupMutex=OSFontPack_Setup_Mutex 
 
 AppName=Open Source Font Pack
-AppVersion=0.4.1
-VersionInfoVersion=0.4.1
+AppVersion=0.4.2
+VersionInfoVersion=0.4.2
 
 AppPublisher=Michael 'Tex' Hex
 AppSupportURL=https://github.com/texhex/OSFontPack
@@ -110,25 +110,27 @@ Name: "{app}\Roboto by Christian Robertson Homepage"; Filename: "https://github.
 ;Copy license files - always copied
 Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
 
+;Deactivated: fontisnttruetype
+
 ;Install Hack font
-  Source: "fonts\Hack_v2_010\Hack-Bold.ttf"; FontInstall: "Hack Bold (OpenType)"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Hack_v2_010\Hack-BoldOblique.ttf"; FontInstall: "Hack Bold Italic (OpenType)"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Hack_v2_010\Hack-Regular.ttf"; FontInstall: "Hack Regular (OpenType)"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Hack_v2_010\Hack-RegularOblique.ttf"; FontInstall: "Hack Italic (OpenType)"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
+  Source: "fonts\Hack_v2_010\Hack-Bold.ttf"; FontInstall: "Hack Bold"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Hack_v2_010\Hack-BoldOblique.ttf"; FontInstall: "Hack Bold Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Hack_v2_010\Hack-Regular.ttf"; FontInstall: "Hack Regular"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Hack_v2_010\Hack-RegularOblique.ttf"; FontInstall: "Hack Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
 
 ;Install Roboto font
-  Source: "fonts\Roboto_v2_1171\Roboto-Black.ttf"; FontInstall: "Roboto Black (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-BlackItalic.ttf"; FontInstall: "Roboto Black Italic (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-Bold.ttf"; FontInstall: "Roboto Bold (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-BoldItalic.ttf"; FontInstall: "Roboto Bold Italic (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-Italic.ttf"; FontInstall: "Roboto Italic (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-Light.ttf"; FontInstall: "Roboto Light (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-LightItalic.ttf"; FontInstall: "Roboto Light Italic (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-Medium.ttf"; FontInstall: "Roboto Medium (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-MediumItalic.ttf"; FontInstall: "Roboto Medium Italic (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-Regular.ttf"; FontInstall: "Roboto (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-Thin.ttf"; FontInstall: "Roboto Thin (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
-  Source: "fonts\Roboto_v2_1171\Roboto-ThinItalic.ttf"; FontInstall: "Roboto Thin Italic (OpenType)"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-Black.ttf"; FontInstall: "Roboto Black"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-BlackItalic.ttf"; FontInstall: "Roboto Black Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-Bold.ttf"; FontInstall: "Roboto Bold"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-BoldItalic.ttf"; FontInstall: "Roboto Bold Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-Italic.ttf"; FontInstall: "Roboto Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-Light.ttf"; FontInstall: "Roboto Light"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-LightItalic.ttf"; FontInstall: "Roboto Light Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-Medium.ttf"; FontInstall: "Roboto Medium"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-MediumItalic.ttf"; FontInstall: "Roboto Medium Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-Regular.ttf"; FontInstall: "Roboto"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-Thin.ttf"; FontInstall: "Roboto Thin"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_1171\Roboto-ThinItalic.ttf"; FontInstall: "Roboto Thin Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
 
 
 [InstallDelete]
@@ -162,7 +164,7 @@ Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
  
 [INI]
 ;Create an ini to make detection for enterprise deployment tools easy
-Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "0.4.1"
+Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "0.4.2"
 
 [UninstallDelete]
 ;Delete Install Info
@@ -230,6 +232,8 @@ var
   FontCache30Service_Stopped:boolean;
 
   BeforeInstallActionWasRun:boolean;
+
+  ChangesRequired:boolean;
 
 
 function OpenSCManager(lpMachineName, lpDatabaseName: string; dwDesiredAccess :cardinal): HANDLE;
@@ -391,6 +395,7 @@ procedure InitializeWizard;
 var
   title, subTitle:string;
 begin
+  ChangesRequired:=false;
   FontCacheService_Stopped:=false;
   FontCache30Service_Stopped:=false;
 
@@ -497,8 +502,7 @@ var
   i:integer;
   currentFont:string;
   currentFontFileNameWindows:string;
-  
-  ChangesRequired:boolean;
+ 
 begin
   log('---BeforeInstallAction---');
 
@@ -515,7 +519,7 @@ begin
      for i := 0 to GetArrayLength(FontFiles)-1 do begin
          currentFont:=FontFiles[i];
          log('Calculating hash for '+currentFont);
-         log('   File from setup:  ' +  FontFilesHashes[i]);    
+         log('   File from setup: ' +  FontFilesHashes[i]);    
          
          currentFontFileNameWindows:=ExpandConstant('{fonts}\'+currentFont);
     
@@ -525,13 +529,20 @@ begin
             InstalledFontsHashes[i]:='-NOT FOUND-';
          end;
      
-         log('   File in \fonts  :  ' +  InstalledFontsHashes[i]);
+         log('   File in \fonts : ' +  InstalledFontsHashes[i]);
      end;
 
      ChangesRequired:=false;
 
      if IsComponentSelected('hack') then begin        
         if FontFilesFromSetupAndWindowsAreDifferent('hack') then begin
+           ChangesRequired:=true;
+        end;
+     end;
+
+
+     if IsComponentSelected('roboto') then begin        
+        if FontFilesFromSetupAndWindowsAreDifferent('roboto') then begin
            ChangesRequired:=true;
         end;
      end;
@@ -586,7 +597,7 @@ begin
       end;
 
 
-      PostMessage(-1, 29, 0, 0);
+      SendBroadcastMessage(29, 0, 0);
 
    
   end;
@@ -598,6 +609,18 @@ begin
 end;
 
 
+
+function NeedRestart(): Boolean;
+begin
+ 
+  log('---NeedRestart---');
+  if ChangesRequired then
+     log('  Changes detected, require reboot');
+
+  result:=ChangesRequired;
+    
+  log('---NeedRestart END---');
+end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 begin

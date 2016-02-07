@@ -17,7 +17,7 @@
 //#define DEBUG
 
 //Update this when releasing a new version
-#define public Version '0.4.1'
+#define public Version '0.4.2'
 
 
 //--------------------------------------------------------------------
@@ -43,13 +43,13 @@
 #dim hack_fontnames[4]
 
 #define hack_filenames[0] 'Hack-Bold.ttf'
-#define hack_fontnames[0] 'Hack Bold (OpenType)'
+#define hack_fontnames[0] 'Hack Bold'
 #define hack_filenames[1] 'Hack-BoldOblique.ttf'
-#define hack_fontnames[1] 'Hack Bold Italic (OpenType)'
+#define hack_fontnames[1] 'Hack Bold Italic'
 #define hack_filenames[2] 'Hack-Regular.ttf'
-#define hack_fontnames[2] 'Hack Regular (OpenType)'
+#define hack_fontnames[2] 'Hack Regular'
 #define hack_filenames[3] 'Hack-RegularOblique.ttf'
-#define hack_fontnames[3] 'Hack Italic (OpenType)'
+#define hack_fontnames[3] 'Hack Italic'
 
 //Definition for Roboto Font
 #define roboto_component 'roboto'
@@ -60,29 +60,29 @@
 #dim roboto_fontnames[12]
 
 #define roboto_filenames[0] 'Roboto-Black.ttf'
-#define roboto_fontnames[0] 'Roboto Black (OpenType)'
+#define roboto_fontnames[0] 'Roboto Black'
 #define roboto_filenames[1] 'Roboto-BlackItalic.ttf'
-#define roboto_fontnames[1] 'Roboto Black Italic (OpenType)'
+#define roboto_fontnames[1] 'Roboto Black Italic'
 #define roboto_filenames[2] 'Roboto-Bold.ttf'
-#define roboto_fontnames[2] 'Roboto Bold (OpenType)'
+#define roboto_fontnames[2] 'Roboto Bold'
 #define roboto_filenames[3] 'Roboto-BoldItalic.ttf'
-#define roboto_fontnames[3] 'Roboto Bold Italic (OpenType)'
+#define roboto_fontnames[3] 'Roboto Bold Italic'
 #define roboto_filenames[4] 'Roboto-Italic.ttf'
-#define roboto_fontnames[4] 'Roboto Italic (OpenType)'
+#define roboto_fontnames[4] 'Roboto Italic'
 #define roboto_filenames[5] 'Roboto-Light.ttf'
-#define roboto_fontnames[5] 'Roboto Light (OpenType)'
+#define roboto_fontnames[5] 'Roboto Light'
 #define roboto_filenames[6] 'Roboto-LightItalic.ttf'
-#define roboto_fontnames[6] 'Roboto Light Italic (OpenType)'
+#define roboto_fontnames[6] 'Roboto Light Italic'
 #define roboto_filenames[7] 'Roboto-Medium.ttf'
-#define roboto_fontnames[7] 'Roboto Medium (OpenType)'
+#define roboto_fontnames[7] 'Roboto Medium'
 #define roboto_filenames[8] 'Roboto-MediumItalic.ttf'
-#define roboto_fontnames[8] 'Roboto Medium Italic (OpenType)'
+#define roboto_fontnames[8] 'Roboto Medium Italic'
 #define roboto_filenames[9] 'Roboto-Regular.ttf'
-#define roboto_fontnames[9] 'Roboto (OpenType)'
+#define roboto_fontnames[9] 'Roboto'
 #define roboto_filenames[10] 'Roboto-Thin.ttf'
-#define roboto_fontnames[10] 'Roboto Thin (OpenType)'
+#define roboto_fontnames[10] 'Roboto Thin'
 #define roboto_filenames[11] 'Roboto-ThinItalic.ttf'
-#define roboto_fontnames[11] 'Roboto Thin Italic (OpenType)'
+#define roboto_fontnames[11] 'Roboto Thin Italic'
 
 
 
@@ -169,10 +169,12 @@ Name: "{app}\{#roboto_description} Homepage"; Filename: "https://github.com/goog
 ;Copy license files - always copied
 Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
 
+;Deactivated: fontisnttruetype
+
 ;Install Hack font
 #define public i 0
 #sub Sub_HackFiles
-  Source: "fonts\{#hack_sourcefolder}\{#hack_filenames[i]}"; FontInstall: "{#hack_fontnames[i]}"; Components: {#hack_component}; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
+  Source: "fonts\{#hack_sourcefolder}\{#hack_filenames[i]}"; FontInstall: "{#hack_fontnames[i]}"; Components: {#hack_component}; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
 #endsub
 #for {i = 0; i < DimOf(hack_filenames); i++} Sub_HackFiles
 #undef i
@@ -180,7 +182,7 @@ Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
 ;Install Roboto font
 #define public i 0
 #sub Sub_RobotoFiles
-  Source: "fonts\{#roboto_sourcefolder}\{#roboto_filenames[i]}"; FontInstall: "{#roboto_fontnames[i]}"; Components: {#roboto_component}; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion fontisnttruetype restartreplace; 
+  Source: "fonts\{#roboto_sourcefolder}\{#roboto_filenames[i]}"; FontInstall: "{#roboto_fontnames[i]}"; Components: {#roboto_component}; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
 #endsub
 #for {i = 0; i < DimOf(roboto_filenames); i++} Sub_RobotoFiles
 #undef i
@@ -290,6 +292,9 @@ var
 
   //True if the action has been run
   BeforeInstallActionWasRun:boolean;
+
+  //If this true we will make changes to this system
+  ChangesRequired:boolean;
 
 
 // #######################################################################################
@@ -436,7 +441,7 @@ begin
 
 #undef public i
 
-//Loop over all hack fonts
+//Loop over all Hack fonts
 #define public i 0  
 #sub Sub_HackGenerateHash
  #emit  AddFontDataMacro(hack_filenames[i], hack_component, GetSHA1OfFontFile(hack_sourcefolder, hack_filenames[i])) 
@@ -444,7 +449,7 @@ begin
 #for {i = 0; i < DimOf(hack_filenames); i++} Sub_HackGenerateHash
 #undef i
 
-//Loop over all roboto fonts
+//Loop over all Roboto fonts
 #define public i 0  
 #sub Sub_RobotoGenerateHash
  #emit  AddFontDataMacro(roboto_filenames[i], roboto_component, GetSHA1OfFontFile(roboto_sourcefolder, roboto_filenames[i])) 
@@ -461,6 +466,7 @@ procedure InitializeWizard;
 var
   title, subTitle:string;
 begin
+  ChangesRequired:=false;
   FontCacheService_Stopped:=false;
   FontCache30Service_Stopped:=false;
 
@@ -578,9 +584,7 @@ var
   i:integer;
   currentFont:string;
   currentFontFileNameWindows:string;
-  
-  //If this true we will make changes to this system
-  ChangesRequired:boolean;
+ 
 begin
   log('---BeforeInstallAction---');
 
@@ -598,7 +602,7 @@ begin
      for i := 0 to GetArrayLength(FontFiles)-1 do begin
          currentFont:=FontFiles[i];
          log('Calculating hash for '+currentFont);
-         log('   File from setup:  ' +  FontFilesHashes[i]);    
+         log('   File from setup: ' +  FontFilesHashes[i]);    
          
          currentFontFileNameWindows:=ExpandConstant('{fonts}\'+currentFont);
     
@@ -609,7 +613,7 @@ begin
             InstalledFontsHashes[i]:='-NOT FOUND-';
          end;
      
-         log('   File in \fonts  :  ' +  InstalledFontsHashes[i]);
+         log('   File in \fonts : ' +  InstalledFontsHashes[i]);
      end;
 
      //Set it to false by default
@@ -625,9 +629,16 @@ begin
      end;
 
 
+     if IsComponentSelected('{#roboto_component}') then begin        
+        if FontFilesFromSetupAndWindowsAreDifferent('{#roboto_component}') then begin
+           ChangesRequired:=true;
+        end;
+     end;
+
+
      //If at least ine file will be installed, we will stop the "Windows Font Cache Service" and the "Windows Presentation Foundation Font Cache".
      //This will ensure that that these services update their internal database
-     //If users still report about broken fonts, we will need to delete Font*.dat and ~Font*.dat from  C:\Windows\ServiceProfiles\LocalService\AppData\Local\ 
+     //If users still report about broken fonts, we will need to delete FontCache-S*.dat and ~FontCache-S*.dat from  C:\Windows\ServiceProfiles\LocalService\AppData\Local\FontCache 
      FontCacheService_Stopped:=false;
      FontCache30Service_Stopped:=false;
 
@@ -681,7 +692,7 @@ begin
 
       //Finally, inform windows that fonts have changed (just to be sure we do this always)
       //See https://msdn.microsoft.com/en-us/library/windows/desktop/dd183326%28v=vs.85%29.aspx
-      PostMessage(-1, 29, 0, 0);
+      SendBroadcastMessage(29, 0, 0);
       //HWND_BROADCAST = -1
       //WM_FONTCHANGE = 0x1D = 29
 
@@ -695,6 +706,20 @@ begin
 end;
 
 
+
+function NeedRestart(): Boolean;
+begin
+  //Given the MSDN docs, it seems that changing the fonts always requires a restart: https://msdn.microsoft.com/en-us/library/windows/desktop/dd183326%28v=vs.85%29.aspx
+  //I also noticed this during the development of this setup, so we better be sure than sorry. 
+ 
+  log('---NeedRestart---');
+  if ChangesRequired then
+     log('  Changes detected, require reboot');
+
+  result:=ChangesRequired;
+    
+  log('---NeedRestart END---');
+end;
 
 //Set up our own actions before and after the install starts
 procedure CurStepChanged(CurStep: TSetupStep);
