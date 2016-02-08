@@ -4,10 +4,12 @@
 ; END ISPPBUILTINS.ISS
 
 
+
 ; BEGIN ISPPBUILTINS.ISS
 
 
 ; END ISPPBUILTINS.ISS
+
 
 
 
@@ -29,10 +31,98 @@
 
 
 
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;Font file output
+; Hack-Bold.ttf
+; Hack-BoldItalic.ttf
+; Hack-Regular.ttf
+; Hack-Italic.ttf
+; Roboto-Black.ttf
+; Roboto-BlackItalic.ttf
+; Roboto-Bold.ttf
+; Roboto-BoldItalic.ttf
+; Roboto-Italic.ttf
+; Roboto-Light.ttf
+; Roboto-LightItalic.ttf
+; Roboto-Medium.ttf
+; Roboto-MediumItalic.ttf
+; Roboto-Regular.ttf
+; Roboto-Thin.ttf
+; Roboto-ThinItalic.ttf
+; Lato-Black.ttf
+; Lato-BlackItalic.ttf
+; Lato-Bold.ttf
+; Lato-BoldItalic.ttf
+; Lato-Hairline.ttf
+; Lato-HairlineItalic.ttf
+; Lato-Heavy.ttf
+; Lato-HeavyItalic.ttf
+; Lato-Italic.ttf
+; Lato-Light.ttf
+; Lato-LightItalic.ttf
+; Lato-Medium.ttf
+; Lato-MediumItalic.ttf
+; Lato-Regular.ttf
+; Lato-Semibold.ttf
+; Lato-SemiboldItalic.ttf
+; Lato-Thin.ttf
+; Lato-ThinItalic.ttf
+
+
+
 ;General procedure
-; a) Welcome page (might be disabled later on)
+; a) Welcome page (Needed to display the version of this setup)
 ; b) License is shown
 ; c) Readme is displayed
+; d) Select fonts to install 
+; e) Ready to install
+; d) INSTALL
+; d1) InstallDelete
+; d2) BeforeInstallAction (Stop services)
+; d3) Install files
+; d4) AfterInstallAction (Start services)
+; e) All done
 
 
   
@@ -42,8 +132,8 @@ AppId=OSFontPack
 SetupMutex=OSFontPack_Setup_Mutex 
 
 AppName=Open Source Font Pack
-AppVersion=0.4.2
-VersionInfoVersion=0.4.2
+AppVersion=0.5.1
+VersionInfoVersion=0.5.1
 
 AppPublisher=Michael 'Tex' Hex
 AppSupportURL=https://github.com/texhex/OSFontPack
@@ -95,6 +185,7 @@ Name: "custom"; Description: "Custom: Select fonts to install"; Flags: iscustom
 [Components]
 Name: "hack"; Description: "Hack by Christopher Simpkins"; Types: full; Flags: disablenouninstallwarning;
 Name: "roboto"; Description: "Roboto by Christian Robertson"; Types: full; Flags: disablenouninstallwarning;
+Name: "lato"; Description: "Lato by Lukasz Dziedzic"; Types: full; Flags: disablenouninstallwarning;
 
 [Icons]
 Name: "{app}\Fonts Applet"; Filename: "control.exe"; Parameters: "/name Microsoft.Fonts"; WorkingDir: "{win}";
@@ -102,23 +193,20 @@ Name: "{app}\Fonts Applet"; Filename: "control.exe"; Parameters: "/name Microsof
 ;The links to the homepage are only created if the user has selected the matching component
 Name: "{app}\Hack by Christopher Simpkins Homepage"; Filename: "https://github.com/chrissimpkins/Hack"; Components: hack;
 Name: "{app}\Roboto by Christian Robertson Homepage"; Filename: "https://github.com/google/roboto"; Components: hack;
+Name: "{app}\Lato by Lukasz Dziedzic Homepage"; Filename: "http://www.latofonts.com/"; Components: lato;
 
-;Name: "{app}\Lato Homepage"; Filename: "http://www.latofonts.com/"; 
+
 
 
 [Files]
 ;Copy license files - always copied
 Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
 
-;Deactivated: fontisnttruetype
-
-;Install Hack font
-  Source: "fonts\Hack_v2_010\Hack-Bold.ttf"; FontInstall: "Hack Bold"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Hack_v2_010\Hack-BoldOblique.ttf"; FontInstall: "Hack Bold Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Hack_v2_010\Hack-Regular.ttf"; FontInstall: "Hack Regular"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Hack_v2_010\Hack-RegularOblique.ttf"; FontInstall: "Hack Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-
-;Install Roboto font
+;Install fonts
+  Source: "fonts\Hack_v2_019\Hack-Bold.ttf"; FontInstall: "Hack Bold"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Hack_v2_019\Hack-BoldItalic.ttf"; FontInstall: "Hack Bold Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Hack_v2_019\Hack-Regular.ttf"; FontInstall: "Hack Regular"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Hack_v2_019\Hack-Italic.ttf"; FontInstall: "Hack Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Roboto_v2_1171\Roboto-Black.ttf"; FontInstall: "Roboto Black"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Roboto_v2_1171\Roboto-BlackItalic.ttf"; FontInstall: "Roboto Black Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Roboto_v2_1171\Roboto-Bold.ttf"; FontInstall: "Roboto Bold"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
@@ -131,6 +219,24 @@ Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
   Source: "fonts\Roboto_v2_1171\Roboto-Regular.ttf"; FontInstall: "Roboto"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Roboto_v2_1171\Roboto-Thin.ttf"; FontInstall: "Roboto Thin"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Roboto_v2_1171\Roboto-ThinItalic.ttf"; FontInstall: "Roboto Thin Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Black.ttf"; FontInstall: "Lato Black"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-BlackItalic.ttf"; FontInstall: "Lato Black Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Bold.ttf"; FontInstall: "Lato Bold"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-BoldItalic.ttf"; FontInstall: "Lato Bold Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Hairline.ttf"; FontInstall: "Lato Hairline"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-HairlineItalic.ttf"; FontInstall: "Lato Hairline Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Heavy.ttf"; FontInstall: "Lato Heavy"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-HeavyItalic.ttf"; FontInstall: "Lato Heavy Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Italic.ttf"; FontInstall: "Lato Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Light.ttf"; FontInstall: "Lato Light"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-LightItalic.ttf"; FontInstall: "Lato Light Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Medium.ttf"; FontInstall: "Lato Medium"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-MediumItalic.ttf"; FontInstall: "Lato Medium Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Regular.ttf"; FontInstall: "Lato"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Semibold.ttf"; FontInstall: "Lato Semibold"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-SemiboldItalic.ttf"; FontInstall: "Lato Semibold Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-Thin.ttf"; FontInstall: "Lato Thin"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Lato_v2_015\Lato-ThinItalic.ttf"; FontInstall: "Lato Thin Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
 
 
 [InstallDelete]
@@ -139,32 +245,52 @@ Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
 
 ;Helper macro to add something to a filename before the extension
 
-;Delete Hack ghost files
   Type: files; Name: "{fonts}\Hack-Bold_*.ttf"; Components: hack; 
-  Type: files; Name: "{fonts}\Hack-BoldOblique_*.ttf"; Components: hack; 
+  Type: files; Name: "{fonts}\Hack-BoldItalic_*.ttf"; Components: hack; 
   Type: files; Name: "{fonts}\Hack-Regular_*.ttf"; Components: hack; 
-  Type: files; Name: "{fonts}\Hack-RegularOblique_*.ttf"; Components: hack; 
+  Type: files; Name: "{fonts}\Hack-Italic_*.ttf"; Components: hack; 
+  Type: files; Name: "{fonts}\Roboto-Black_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-BlackItalic_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-Bold_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-BoldItalic_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-Italic_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-Light_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-LightItalic_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-Medium_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-MediumItalic_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-Regular_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-Thin_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Roboto-ThinItalic_*.ttf"; Components: roboto; 
+  Type: files; Name: "{fonts}\Lato-Black_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-BlackItalic_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-Bold_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-BoldItalic_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-Hairline_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-HairlineItalic_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-Heavy_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-HeavyItalic_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-Italic_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-Light_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-LightItalic_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-Medium_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-MediumItalic_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-Regular_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-Semibold_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-SemiboldItalic_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-Thin_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\Lato-ThinItalic_*.ttf"; Components: lato; 
 
-;Delete roboto ghost files
-  Type: files; Name: "{fonts}\Roboto-Black_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-BlackItalic_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-Bold_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-BoldItalic_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-Italic_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-Light_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-LightItalic_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-Medium_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-MediumItalic_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-Regular_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-Thin_*.ttf"; Components: roboto;
-  Type: files; Name: "{fonts}\Roboto-ThinItalic_*.ttf"; Components: roboto;
+;Delete special files
+;Hack: Version 2.10 has used "Oblique" instead of "Italic" so these files should be deleted when hack is selected
+Type: files; Name: "{fonts}\Hack-BoldOblique.ttf"; Components: hack; 
+Type: files; Name: "{fonts}\Hack-RegularOblique.ttf"; Components: hack; 
 
 
 
  
 [INI]
 ;Create an ini to make detection for enterprise deployment tools easy
-Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "0.4.2"
+Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "0.5.1"
 
 [UninstallDelete]
 ;Delete Install Info
@@ -366,13 +492,10 @@ begin
 
 
 
-
-
-  AddFontData('hack', 'Hack-Bold.ttf', '69f032eb469c750c28398faab2f04925d154886d');
-  AddFontData('hack', 'Hack-BoldOblique.ttf', '5f99ac271a95b11d77298db83fc876fb80392c56');
-  AddFontData('hack', 'Hack-Regular.ttf', '057059d5f04113f1a08bd497c7e85b9bb201305e');
-  AddFontData('hack', 'Hack-RegularOblique.ttf', '4c652eaa1b9c3d4ffb9b27f2f707b6a566486203');
-
+  AddFontData('hack', 'Hack-Bold.ttf', '88b4fa8e7d1aa8fe2d2d3f52a75cb2cf44b83c7a');
+  AddFontData('hack', 'Hack-BoldItalic.ttf', 'a977e19b2b69c39eda63cd57fb41f55ef1fef38a');
+  AddFontData('hack', 'Hack-Regular.ttf', '3d5f3ccfa40406ad252b76a2219cb629df8e5ab3');
+  AddFontData('hack', 'Hack-Italic.ttf', '5d00974b49990e543f55b4aec2ea83660c8a49bf');
   AddFontData('roboto', 'Roboto-Black.ttf', '771b45f0ceb2a752cd0d705187468e6993fd0fb9');
   AddFontData('roboto', 'Roboto-BlackItalic.ttf', 'dfcf1003251caffcc9b94057d9845a5626b02fa3');
   AddFontData('roboto', 'Roboto-Bold.ttf', '0a1793926e2ee724cf2ff3fc7adc745348659f82');
@@ -385,8 +508,24 @@ begin
   AddFontData('roboto', 'Roboto-Regular.ttf', 'cb0cb91a31f43293bd7042ddab945ce161c29d3d');
   AddFontData('roboto', 'Roboto-Thin.ttf', '0fd03ae48dc48825c79b346fd981f55a01acf9e1');
   AddFontData('roboto', 'Roboto-ThinItalic.ttf', 'b61b6329c1b273fd662e638fb9cff02811d6d769');
-
-
+  AddFontData('lato', 'Lato-Black.ttf', 'b9c952639741f5b7479e1ff6d1561a3df7e8f83a');
+  AddFontData('lato', 'Lato-BlackItalic.ttf', '4bde1231ff7afccfdf4f77f086c0e9a93a4f3e46');
+  AddFontData('lato', 'Lato-Bold.ttf', '6b2c7b124cbf0aaeba48d57fb0fa19f2c6c69683');
+  AddFontData('lato', 'Lato-BoldItalic.ttf', 'bf9e7d4a6185b53a256272869e66762c1e5d503b');
+  AddFontData('lato', 'Lato-Hairline.ttf', '79c1dd6a9c740ef36272a9742504864a6f912be7');
+  AddFontData('lato', 'Lato-HairlineItalic.ttf', 'ea271649cc2f58a61fc819c9ca82eb8724717a2f');
+  AddFontData('lato', 'Lato-Heavy.ttf', '068af974d1346b61d9ee1e097374f2f3cac6c442');
+  AddFontData('lato', 'Lato-HeavyItalic.ttf', 'f2d4047e1f5efd405b850abe23ccfdc2ceb1b3f8');
+  AddFontData('lato', 'Lato-Italic.ttf', '63c5d4424bc3466477be05dc122799df7665e571');
+  AddFontData('lato', 'Lato-Light.ttf', 'a405c8288a8a90881407f93b6ee02b29e26a8735');
+  AddFontData('lato', 'Lato-LightItalic.ttf', 'f05f3b58c5abd991036a1b43bd601556244ffe9e');
+  AddFontData('lato', 'Lato-Medium.ttf', 'c78e94b7cc0b782eef4f9f2be371c3cf9c3f6eaf');
+  AddFontData('lato', 'Lato-MediumItalic.ttf', 'df1a7160502d9e90c41b92b7243270a769904786');
+  AddFontData('lato', 'Lato-Regular.ttf', 'f59f9e4f3cbee981a5e6f58a279f9b9613f22599');
+  AddFontData('lato', 'Lato-Semibold.ttf', '96569e2cfcc3a298bb1aea21103d0d1e3c7e2ed4');
+  AddFontData('lato', 'Lato-SemiboldItalic.ttf', '8a34fbb379a096d4c5914a962a6f71e1721b40a7');
+  AddFontData('lato', 'Lato-Thin.ttf', 'dbe1f622faef3ea3f286d848da6b10f104405060');
+  AddFontData('lato', 'Lato-ThinItalic.ttf', '8ce23025cf59e58b9bafdd8526d685d8347267c7');
 
 end;
 
@@ -538,11 +677,20 @@ begin
         if FontFilesFromSetupAndWindowsAreDifferent('hack') then begin
            ChangesRequired:=true;
         end;
+
+        ;RegDeleteValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', 'Hack Oblique Regular (TrueType)');
      end;
 
 
      if IsComponentSelected('roboto') then begin        
         if FontFilesFromSetupAndWindowsAreDifferent('roboto') then begin
+           ChangesRequired:=true;
+        end;
+     end;
+
+
+     if IsComponentSelected('lato') then begin        
+        if FontFilesFromSetupAndWindowsAreDifferent('lato') then begin
            ChangesRequired:=true;
         end;
      end;
@@ -621,6 +769,12 @@ begin
     
   log('---NeedRestart END---');
 end;
+
+function UninstallNeedRestart(): Boolean;
+begin
+ result:=true;
+end;
+
 
 procedure CurStepChanged(CurStep: TSetupStep);
 begin

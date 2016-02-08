@@ -3,21 +3,23 @@
 //Licensed under the MIT License
 //https://github.com/texhex/OSFontPack/
 
-#include <ISPPBuiltins.iss>
-#pragma option -v+
-#pragma verboselevel 9
-
 //We require InnoSetup 5.5.8
 #if VER < EncodeVer(5,5,8)
   #error A more recent version of Inno Setup is required to compile this script (5.5.8 or newer)
 #endif
+
+#include <ISPPBuiltins.iss>
+#pragma option -v+
+#pragma verboselevel 9
+
+
 
 
 //Disable the following line when releasing the setup
 //#define DEBUG
 
 //Update this when releasing a new version
-#define public Version '0.4.2'
+#define public Version '0.5.1'
 
 
 //--------------------------------------------------------------------
@@ -34,62 +36,272 @@
 
 
 
+
+//Total number of font entries we have
+#define total_fonts 34
+//--------------------------
+
+
+#dim public font_component[total_fonts]
+#dim public font_source[total_fonts]
+#dim public font_file[total_fonts]
+#dim public font_name[total_fonts]
+
+//Counter for array
+#define cntr 0
+
+
 //Definition for Hack Font
 #define hack_component 'hack'
+#define hack_sourcefolder 'Hack_v2_019'
 #define hack_description 'Hack by Christopher Simpkins'
-#define hack_sourcefolder 'Hack_v2_010'
+#define hack_homepage 'https://github.com/chrissimpkins/Hack'
 
-#dim hack_filenames[4]
-#dim hack_fontnames[4]
 
-#define hack_filenames[0] 'Hack-Bold.ttf'
-#define hack_fontnames[0] 'Hack Bold'
-#define hack_filenames[1] 'Hack-BoldOblique.ttf'
-#define hack_fontnames[1] 'Hack Bold Italic'
-#define hack_filenames[2] 'Hack-Regular.ttf'
-#define hack_fontnames[2] 'Hack Regular'
-#define hack_filenames[3] 'Hack-RegularOblique.ttf'
-#define hack_fontnames[3] 'Hack Italic'
+#define font_component[cntr] hack_component
+#define font_source[cntr] hack_sourcefolder
+#define font_file[cntr] 'Hack-Bold.ttf'
+#define font_name[cntr] 'Hack Bold'
+#define cntr cntr+1
+
+#define font_component[cntr] hack_component
+#define font_source[cntr] hack_sourcefolder
+#define font_file[cntr] 'Hack-BoldItalic.ttf'
+#define font_name[cntr] 'Hack Bold Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] hack_component
+#define font_source[cntr] hack_sourcefolder
+#define font_file[cntr] 'Hack-Regular.ttf'
+#define font_name[cntr] 'Hack Regular'
+#define cntr cntr+1
+
+#define font_component[cntr] hack_component
+#define font_source[cntr] hack_sourcefolder
+#define font_file[cntr] 'Hack-Italic.ttf'
+#define font_name[cntr] 'Hack Italic'
+#define cntr cntr+1
+
 
 //Definition for Roboto Font
-#define roboto_component 'roboto'
+#define public roboto_component 'roboto'
+#define public roboto_sourcefolder 'Roboto_v2_1171'
 #define roboto_description 'Roboto by Christian Robertson'
-#define roboto_sourcefolder 'Roboto_v2_1171'
+#define roboto_homepage 'https://github.com/google/roboto'
 
-#dim roboto_filenames[12]
-#dim roboto_fontnames[12]
 
-#define roboto_filenames[0] 'Roboto-Black.ttf'
-#define roboto_fontnames[0] 'Roboto Black'
-#define roboto_filenames[1] 'Roboto-BlackItalic.ttf'
-#define roboto_fontnames[1] 'Roboto Black Italic'
-#define roboto_filenames[2] 'Roboto-Bold.ttf'
-#define roboto_fontnames[2] 'Roboto Bold'
-#define roboto_filenames[3] 'Roboto-BoldItalic.ttf'
-#define roboto_fontnames[3] 'Roboto Bold Italic'
-#define roboto_filenames[4] 'Roboto-Italic.ttf'
-#define roboto_fontnames[4] 'Roboto Italic'
-#define roboto_filenames[5] 'Roboto-Light.ttf'
-#define roboto_fontnames[5] 'Roboto Light'
-#define roboto_filenames[6] 'Roboto-LightItalic.ttf'
-#define roboto_fontnames[6] 'Roboto Light Italic'
-#define roboto_filenames[7] 'Roboto-Medium.ttf'
-#define roboto_fontnames[7] 'Roboto Medium'
-#define roboto_filenames[8] 'Roboto-MediumItalic.ttf'
-#define roboto_fontnames[8] 'Roboto Medium Italic'
-#define roboto_filenames[9] 'Roboto-Regular.ttf'
-#define roboto_fontnames[9] 'Roboto'
-#define roboto_filenames[10] 'Roboto-Thin.ttf'
-#define roboto_fontnames[10] 'Roboto Thin'
-#define roboto_filenames[11] 'Roboto-ThinItalic.ttf'
-#define roboto_fontnames[11] 'Roboto Thin Italic'
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'Roboto-Black.ttf'
+#define font_name[cntr] 'Roboto Black'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder        
+#define font_file[cntr] 'Roboto-BlackItalic.ttf'
+#define font_name[cntr] 'Roboto Black Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder        
+#define font_file[cntr] 'Roboto-Bold.ttf'
+#define font_name[cntr] 'Roboto Bold'
+#define cntr cntr+1
+        
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'Roboto-BoldItalic.ttf'
+#define font_name[cntr] 'Roboto Bold Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder       
+#define font_file[cntr] 'Roboto-Italic.ttf'
+#define font_name[cntr] 'Roboto Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder       
+#define font_file[cntr] 'Roboto-Light.ttf'
+#define font_name[cntr] 'Roboto Light'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'Roboto-LightItalic.ttf'
+#define font_name[cntr] 'Roboto Light Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'Roboto-Medium.ttf'
+#define font_name[cntr] 'Roboto Medium'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'Roboto-MediumItalic.ttf'
+#define font_name[cntr] 'Roboto Medium Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'Roboto-Regular.ttf'
+#define font_name[cntr] 'Roboto'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'Roboto-Thin.ttf'
+#define font_name[cntr] 'Roboto Thin'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'Roboto-ThinItalic.ttf'
+#define font_name[cntr] 'Roboto Thin Italic'
+#define cntr cntr+1
+
+
+//Definition for Lato
+#define public lato_component 'lato'
+#define public lato_sourcefolder 'Lato_v2_015'
+#define public lato_description 'Lato by Lukasz Dziedzic'
+#define public lato_homepage 'http://www.latofonts.com/'
+
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Black.ttf'
+#define font_name[cntr] 'Lato Black'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-BlackItalic.ttf'
+#define font_name[cntr] 'Lato Black Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Bold.ttf'
+#define font_name[cntr] 'Lato Bold'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-BoldItalic.ttf'
+#define font_name[cntr] 'Lato Bold Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Hairline.ttf'
+#define font_name[cntr] 'Lato Hairline'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-HairlineItalic.ttf'
+#define font_name[cntr] 'Lato Hairline Italic'                         
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Heavy.ttf'
+#define font_name[cntr] 'Lato Heavy'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-HeavyItalic.ttf'
+#define font_name[cntr] 'Lato Heavy Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Italic.ttf'
+#define font_name[cntr] 'Lato Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Light.ttf'
+#define font_name[cntr] 'Lato Light'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-LightItalic.ttf'
+#define font_name[cntr] 'Lato Light Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Medium.ttf'
+#define font_name[cntr] 'Lato Medium'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-MediumItalic.ttf'
+#define font_name[cntr] 'Lato Medium Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Regular.ttf'
+#define font_name[cntr] 'Lato'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Semibold.ttf'
+#define font_name[cntr] 'Lato Semibold'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-SemiboldItalic.ttf'
+#define font_name[cntr] 'Lato Semibold Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-Thin.ttf'
+#define font_name[cntr] 'Lato Thin'
+#define cntr cntr+1
+
+#define font_component[cntr] lato_component
+#define font_source[cntr] lato_sourcefolder
+#define font_file[cntr] 'Lato-ThinItalic.ttf'
+#define font_name[cntr] 'Lato Thin Italic'
+#define cntr cntr+1
+
+
+
+;Font file output
+#define public i 0
+#sub Sub_JustTesting
+  #emit '; ' + font_file[i]
+#endsub
+#for {i = 0; i < DimOf(font_file); i++} Sub_JustTesting
+#undef i
 
 
 
 ;General procedure
-; a) Welcome page (might be disabled later on)
+; a) Welcome page (Needed to display the version of this setup)
 ; b) License is shown
 ; c) Readme is displayed
+; d) Select fonts to install 
+; e) Ready to install
+; d) INSTALL
+; d1) InstallDelete
+; d2) BeforeInstallAction (Stop services)
+; d3) Install files
+; d4) AfterInstallAction (Start services)
+; e) All done
 
 
   
@@ -154,37 +366,29 @@ Name: "custom"; Description: "Custom: Select fonts to install"; Flags: iscustom
 [Components]
 Name: "{#hack_component}"; Description: "{#hack_description}"; Types: full; Flags: disablenouninstallwarning;
 Name: "{#roboto_component}"; Description: "{#roboto_description}"; Types: full; Flags: disablenouninstallwarning;
+Name: "{#lato_component}"; Description: "{#lato_description}"; Types: full; Flags: disablenouninstallwarning;
 
 [Icons]
 Name: "{app}\Fonts Applet"; Filename: "control.exe"; Parameters: "/name Microsoft.Fonts"; WorkingDir: "{win}";
 
 ;The links to the homepage are only created if the user has selected the matching component
-Name: "{app}\{#hack_description} Homepage"; Filename: "https://github.com/chrissimpkins/Hack"; Components: {#hack_component};
-Name: "{app}\{#roboto_description} Homepage"; Filename: "https://github.com/google/roboto"; Components: {#hack_component};
+Name: "{app}\{#hack_description} Homepage"; Filename: "{#hack_homepage}"; Components: {#hack_component};
+Name: "{app}\{#roboto_description} Homepage"; Filename: "{#roboto_homepage}"; Components: {#hack_component};
+Name: "{app}\{#lato_description} Homepage"; Filename: "{#lato_homepage}"; Components: {#lato_component};
 
-;Name: "{app}\Lato Homepage"; Filename: "http://www.latofonts.com/"; 
+
 
 
 [Files]
 ;Copy license files - always copied
 Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
 
-;Deactivated: fontisnttruetype
-
-;Install Hack font
+;Install fonts
 #define public i 0
-#sub Sub_HackFiles
-  Source: "fonts\{#hack_sourcefolder}\{#hack_filenames[i]}"; FontInstall: "{#hack_fontnames[i]}"; Components: {#hack_component}; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+#sub Sub_FontInstall
+  Source: "fonts\{#font_source[i]}\{#font_file[i]}"; FontInstall: "{#font_name[i]}"; Components: {#font_component[i]}; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
 #endsub
-#for {i = 0; i < DimOf(hack_filenames); i++} Sub_HackFiles
-#undef i
-
-;Install Roboto font
-#define public i 0
-#sub Sub_RobotoFiles
-  Source: "fonts\{#roboto_sourcefolder}\{#roboto_filenames[i]}"; FontInstall: "{#roboto_fontnames[i]}"; Components: {#roboto_component}; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-#endsub
-#for {i = 0; i < DimOf(roboto_filenames); i++} Sub_RobotoFiles
+#for {i = 0; i < DimOf(font_file); i++} Sub_FontInstall
 #undef i
 
 
@@ -196,21 +400,17 @@ Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
 #define public AddStringToEndOfFilename(str fileName, str whatToAdd) \
   StringChange(fileName, '.'+ExtractFileExt(filename), whatToAdd + '.' + ExtractFileExt(fileName))
 
-;Delete Hack ghost files
 #define public i 0
-#sub Sub_HackFilesRemove
-  Type: files; Name: "{fonts}\{#AddStringToEndOfFilename(hack_filenames[i],'_*')}"; Components: {#hack_component}; 
+#sub Sub_InstallDeleteRemove
+  Type: files; Name: "{fonts}\{#AddStringToEndOfFilename(font_file[i], '_*')}"; Components: {#font_component[i]}; 
 #endsub
-#for {i = 0; i < DimOf(hack_filenames); i++} Sub_HackFilesRemove
+#for {i = 0; i < DimOf(font_file); i++} Sub_InstallDeleteRemove
 #undef i
 
-;Delete roboto ghost files
-#define public i 0
-#sub Sub_RobotoFilesRemove
-  Type: files; Name: "{fonts}\{#AddStringToEndOfFilename(roboto_filenames[i],'_*')}"; Components: {#roboto_component};
-#endsub
-#for {i = 0; i < DimOf(roboto_filenames); i++} Sub_RobotoFilesRemove
-#undef i
+;Delete special files
+;Hack: Version 2.10 has used "Oblique" instead of "Italic" so these files should be deleted when hack is selected
+Type: files; Name: "{fonts}\Hack-BoldOblique.ttf"; Components: {#hack_component}; 
+Type: files; Name: "{fonts}\Hack-RegularOblique.ttf"; Components: {#hack_component}; 
 
 
 
@@ -438,26 +638,13 @@ begin
 #define public GetSHA1OfFontFile(str fontFolder, str fontFile) \
   GetSHA1OfFile(base_path + 'fonts\' + fontFolder + '\' + fontFile)
 
-
+//Generate AddFontData(....) calls
+#define public i 0  
+#sub Sub_FontDataGenerateHash
+ #emit  AddFontDataMacro(font_file[i], font_component[i], GetSHA1OfFontFile(font_source[i], font_file[i])) 
+#endsub
+#for {i = 0; i < DimOf(font_file); i++} Sub_FontDataGenerateHash
 #undef public i
-
-//Loop over all Hack fonts
-#define public i 0  
-#sub Sub_HackGenerateHash
- #emit  AddFontDataMacro(hack_filenames[i], hack_component, GetSHA1OfFontFile(hack_sourcefolder, hack_filenames[i])) 
-#endsub
-#for {i = 0; i < DimOf(hack_filenames); i++} Sub_HackGenerateHash
-#undef i
-
-//Loop over all Roboto fonts
-#define public i 0  
-#sub Sub_RobotoGenerateHash
- #emit  AddFontDataMacro(roboto_filenames[i], roboto_component, GetSHA1OfFontFile(roboto_sourcefolder, roboto_filenames[i])) 
-#endsub
-#for {i = 0; i < DimOf(roboto_filenames); i++} Sub_RobotoGenerateHash
-#undef i
-
-
 
 end;
 
@@ -626,11 +813,21 @@ begin
         if FontFilesFromSetupAndWindowsAreDifferent('{#hack_component}') then begin
            ChangesRequired:=true;
         end;
+
+        //Delete the left over entry from Hack v2.10
+        ;RegDeleteValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', 'Hack Oblique Regular (TrueType)');
      end;
 
 
      if IsComponentSelected('{#roboto_component}') then begin        
         if FontFilesFromSetupAndWindowsAreDifferent('{#roboto_component}') then begin
+           ChangesRequired:=true;
+        end;
+     end;
+
+
+     if IsComponentSelected('{#lato_component}') then begin        
+        if FontFilesFromSetupAndWindowsAreDifferent('{#lato_component}') then begin
            ChangesRequired:=true;
         end;
      end;
@@ -720,6 +917,13 @@ begin
     
   log('---NeedRestart END---');
 end;
+
+function UninstallNeedRestart(): Boolean;
+begin
+ //See comments above, we better always request a restart
+ result:=true;
+end;
+
 
 //Set up our own actions before and after the install starts
 procedure CurStepChanged(CurStep: TSetupStep);
