@@ -132,8 +132,8 @@ AppId=OSFontPack
 SetupMutex=OSFontPack_Setup_Mutex 
 
 AppName=Open Source Font Pack
-AppVersion=0.5.1
-VersionInfoVersion=0.5.1
+AppVersion=0.5.6
+VersionInfoVersion=0.5.6
 
 AppPublisher=Michael 'Tex' Hex
 AppSupportURL=https://github.com/texhex/OSFontPack
@@ -290,7 +290,7 @@ Type: files; Name: "{fonts}\Hack-RegularOblique.ttf"; Components: hack;
  
 [INI]
 ;Create an ini to make detection for enterprise deployment tools easy
-Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "0.5.1"
+Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "0.5.6"
 
 [UninstallDelete]
 ;Delete Install Info
