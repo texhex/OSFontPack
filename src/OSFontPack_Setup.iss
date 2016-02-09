@@ -19,7 +19,7 @@
 //#define DEBUG
 
 //Update this when releasing a new version
-#define public Version '0.5.6'
+#define public Version '1.0.1'
 
 
 //--------------------------------------------------------------------
@@ -38,7 +38,7 @@
 
 
 //Total number of font entries we have
-#define total_fonts 34
+#define total_fonts 46
 //--------------------------
 
 
@@ -73,7 +73,7 @@
 #define font_component[cntr] hack_component
 #define font_source[cntr] hack_sourcefolder
 #define font_file[cntr] 'Hack-Regular.ttf'
-#define font_name[cntr] 'Hack Regular'
+#define font_name[cntr] 'Hack' /*Regular is not used by Windows, so we need to remove this from the font name*/
 #define cntr cntr+1
 
 #define font_component[cntr] hack_component
@@ -279,7 +279,88 @@
 #define cntr cntr+1
 
 
+//Definition for Source Sans Pro
+#define public sourcesans_component 'sourcesans'
+#define public sourcesans_sourcefolder 'SourceSansPro_v2_020'
+#define public sourcesans_description 'Source Sans Pro by Adobe Inc.'
+#define public sourcesans_homepage 'https://github.com/adobe-fonts/source-sans-pro'
 
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-Black.ttf'
+#define font_name[cntr] 'Source Sans Pro Black'
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-BlackIt.ttf'
+#define font_name[cntr] 'Source Sans Pro Black Italic'
+#define cntr cntr+1
+
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-Bold.ttf'
+#define font_name[cntr] 'Source Sans Pro Bold'
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-BoldIt.ttf'
+#define font_name[cntr] 'Source Sans Pro Bold Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-ExtraLight.ttf'
+#define font_name[cntr] 'Source Sans Pro ExtraLight'
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-ExtraLightIt.ttf'
+#define font_name[cntr] 'Source Sans Pro ExtraLight Italic'                         
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-It.ttf'
+#define font_name[cntr] 'Source Sans Pro Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-Light.ttf'
+#define font_name[cntr] 'Source Sans Pro Light'
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-LightIt.ttf'
+#define font_name[cntr] 'Source Sans Pro Light Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-Regular.ttf'
+#define font_name[cntr] 'Source Sans Pro Regular'
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-Semibold.ttf'
+#define font_name[cntr] 'Source Sans Pro Semibold'
+#define cntr cntr+1
+
+#define font_component[cntr] sourcesans_component
+#define font_source[cntr] sourcesans_sourcefolder
+#define font_file[cntr] 'SourceSansPro-SemiboldIt.ttf'
+#define font_name[cntr] 'Source Sans Pro Semibold Italic'
+#define cntr cntr+1
+
+
+;---DEBUG---
 ;Font file output
 #define public i 0
 #sub Sub_JustTesting
@@ -287,6 +368,7 @@
 #endsub
 #for {i = 0; i < DimOf(font_file); i++} Sub_JustTesting
 #undef i
+;---END---
 
 
 
@@ -365,16 +447,18 @@ Name: "custom"; Description: "Custom: Select fonts to install"; Flags: iscustom
 
 [Components]
 Name: "{#hack_component}"; Description: "{#hack_description}"; Types: full; Flags: disablenouninstallwarning;
-Name: "{#roboto_component}"; Description: "{#roboto_description}"; Types: full; Flags: disablenouninstallwarning;
 Name: "{#lato_component}"; Description: "{#lato_description}"; Types: full; Flags: disablenouninstallwarning;
+Name: "{#roboto_component}"; Description: "{#roboto_description}"; Types: full; Flags: disablenouninstallwarning;
+Name: "{#sourcesans_component}"; Description: "{#sourcesans_description}"; Types: full; Flags: disablenouninstallwarning;
 
 [Icons]
 Name: "{app}\Fonts Applet"; Filename: "control.exe"; Parameters: "/name Microsoft.Fonts"; WorkingDir: "{win}";
 
 ;The links to the homepage are only created if the user has selected the matching component
-Name: "{app}\{#hack_description} Homepage"; Filename: "{#hack_homepage}"; Components: {#hack_component};
-Name: "{app}\{#roboto_description} Homepage"; Filename: "{#roboto_homepage}"; Components: {#hack_component};
-Name: "{app}\{#lato_description} Homepage"; Filename: "{#lato_homepage}"; Components: {#lato_component};
+Name: "{app}\{#hack_description}"; Filename: "{#hack_homepage}"; Components: {#hack_component};
+Name: "{app}\{#roboto_description}"; Filename: "{#roboto_homepage}"; Components: {#roboto_component};
+Name: "{app}\{#lato_description}"; Filename: "{#lato_homepage}"; Components: {#lato_component};
+Name: "{app}\{#sourcesans_description}"; Filename: "{#sourcesans_homepage}"; Components: {#sourcesans_component};
 
 
 
@@ -486,7 +570,7 @@ var
   //SHA1 hashes for fonts already installed
   InstalledFontsHashes: array of string;
 
-  //True if have stopped FontCache service
+  //True if we have stopped FontCache service
   FontCacheService_Stopped:boolean;
   FontCache30Service_Stopped:boolean;
 
@@ -815,7 +899,7 @@ begin
         end;
 
         //Delete the left over entry from Hack v2.10
-        ;RegDeleteValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', 'Hack Oblique Regular (TrueType)');
+        //RegDeleteValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', 'Hack Oblique Regular (TrueType)');
      end;
 
 
@@ -831,6 +915,13 @@ begin
            ChangesRequired:=true;
         end;
      end;
+
+     if IsComponentSelected('{#sourcesans_component}') then begin        
+        if FontFilesFromSetupAndWindowsAreDifferent('{#sourcesans_component}') then begin
+           ChangesRequired:=true;
+        end;
+     end;
+
 
 
      //If at least ine file will be installed, we will stop the "Windows Font Cache Service" and the "Windows Presentation Foundation Font Cache".

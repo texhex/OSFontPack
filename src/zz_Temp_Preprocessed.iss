@@ -73,6 +73,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;---DEBUG---
 ;Font file output
 ; Hack-Bold.ttf
 ; Hack-BoldItalic.ttf
@@ -108,6 +124,19 @@
 ; Lato-SemiboldItalic.ttf
 ; Lato-Thin.ttf
 ; Lato-ThinItalic.ttf
+; SourceSansPro-Black.ttf
+; SourceSansPro-BlackIt.ttf
+; SourceSansPro-Bold.ttf
+; SourceSansPro-BoldIt.ttf
+; SourceSansPro-ExtraLight.ttf
+; SourceSansPro-ExtraLightIt.ttf
+; SourceSansPro-It.ttf
+; SourceSansPro-Light.ttf
+; SourceSansPro-LightIt.ttf
+; SourceSansPro-Regular.ttf
+; SourceSansPro-Semibold.ttf
+; SourceSansPro-SemiboldIt.ttf
+;---END---
 
 
 
@@ -132,8 +161,8 @@ AppId=OSFontPack
 SetupMutex=OSFontPack_Setup_Mutex 
 
 AppName=Open Source Font Pack
-AppVersion=0.5.6
-VersionInfoVersion=0.5.6
+AppVersion=1.0.1
+VersionInfoVersion=1.0.1
 
 AppPublisher=Michael 'Tex' Hex
 AppSupportURL=https://github.com/texhex/OSFontPack
@@ -184,16 +213,18 @@ Name: "custom"; Description: "Custom: Select fonts to install"; Flags: iscustom
 
 [Components]
 Name: "hack"; Description: "Hack by Christopher Simpkins"; Types: full; Flags: disablenouninstallwarning;
-Name: "roboto"; Description: "Roboto by Christian Robertson"; Types: full; Flags: disablenouninstallwarning;
 Name: "lato"; Description: "Lato by Lukasz Dziedzic"; Types: full; Flags: disablenouninstallwarning;
+Name: "roboto"; Description: "Roboto by Christian Robertson"; Types: full; Flags: disablenouninstallwarning;
+Name: "sourcesans"; Description: "Source Sans Pro by Adobe Inc."; Types: full; Flags: disablenouninstallwarning;
 
 [Icons]
 Name: "{app}\Fonts Applet"; Filename: "control.exe"; Parameters: "/name Microsoft.Fonts"; WorkingDir: "{win}";
 
 ;The links to the homepage are only created if the user has selected the matching component
-Name: "{app}\Hack by Christopher Simpkins Homepage"; Filename: "https://github.com/chrissimpkins/Hack"; Components: hack;
-Name: "{app}\Roboto by Christian Robertson Homepage"; Filename: "https://github.com/google/roboto"; Components: hack;
-Name: "{app}\Lato by Lukasz Dziedzic Homepage"; Filename: "http://www.latofonts.com/"; Components: lato;
+Name: "{app}\Hack by Christopher Simpkins"; Filename: "https://github.com/chrissimpkins/Hack"; Components: hack;
+Name: "{app}\Roboto by Christian Robertson"; Filename: "https://github.com/google/roboto"; Components: roboto;
+Name: "{app}\Lato by Lukasz Dziedzic"; Filename: "http://www.latofonts.com/"; Components: lato;
+Name: "{app}\Source Sans Pro by Adobe Inc."; Filename: "https://github.com/adobe-fonts/source-sans-pro"; Components: sourcesans;
 
 
 
@@ -205,7 +236,7 @@ Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
 ;Install fonts
   Source: "fonts\Hack_v2_019\Hack-Bold.ttf"; FontInstall: "Hack Bold"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Hack_v2_019\Hack-BoldItalic.ttf"; FontInstall: "Hack Bold Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Hack_v2_019\Hack-Regular.ttf"; FontInstall: "Hack Regular"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Hack_v2_019\Hack-Regular.ttf"; FontInstall: "Hack"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Hack_v2_019\Hack-Italic.ttf"; FontInstall: "Hack Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Roboto_v2_1171\Roboto-Black.ttf"; FontInstall: "Roboto Black"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Roboto_v2_1171\Roboto-BlackItalic.ttf"; FontInstall: "Roboto Black Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
@@ -237,6 +268,18 @@ Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
   Source: "fonts\Lato_v2_015\Lato-SemiboldItalic.ttf"; FontInstall: "Lato Semibold Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Lato_v2_015\Lato-Thin.ttf"; FontInstall: "Lato Thin"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Lato_v2_015\Lato-ThinItalic.ttf"; FontInstall: "Lato Thin Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-Black.ttf"; FontInstall: "Source Sans Pro Black"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-BlackIt.ttf"; FontInstall: "Source Sans Pro Black Italic"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-Bold.ttf"; FontInstall: "Source Sans Pro Bold"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-BoldIt.ttf"; FontInstall: "Source Sans Pro Bold Italic"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-ExtraLight.ttf"; FontInstall: "Source Sans Pro ExtraLight"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-ExtraLightIt.ttf"; FontInstall: "Source Sans Pro ExtraLight Italic"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-It.ttf"; FontInstall: "Source Sans Pro Italic"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-Light.ttf"; FontInstall: "Source Sans Pro Light"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-LightIt.ttf"; FontInstall: "Source Sans Pro Light Italic"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-Regular.ttf"; FontInstall: "Source Sans Pro Regular"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-Semibold.ttf"; FontInstall: "Source Sans Pro Semibold"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\SourceSansPro_v2_020\SourceSansPro-SemiboldIt.ttf"; FontInstall: "Source Sans Pro Semibold Italic"; Components: sourcesans; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
 
 
 [InstallDelete]
@@ -279,6 +322,18 @@ Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
   Type: files; Name: "{fonts}\Lato-SemiboldItalic_*.ttf"; Components: lato; 
   Type: files; Name: "{fonts}\Lato-Thin_*.ttf"; Components: lato; 
   Type: files; Name: "{fonts}\Lato-ThinItalic_*.ttf"; Components: lato; 
+  Type: files; Name: "{fonts}\SourceSansPro-Black_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-BlackIt_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-Bold_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-BoldIt_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-ExtraLight_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-ExtraLightIt_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-It_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-Light_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-LightIt_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-Regular_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-Semibold_*.ttf"; Components: sourcesans; 
+  Type: files; Name: "{fonts}\SourceSansPro-SemiboldIt_*.ttf"; Components: sourcesans; 
 
 ;Delete special files
 ;Hack: Version 2.10 has used "Oblique" instead of "Italic" so these files should be deleted when hack is selected
@@ -290,7 +345,7 @@ Type: files; Name: "{fonts}\Hack-RegularOblique.ttf"; Components: hack;
  
 [INI]
 ;Create an ini to make detection for enterprise deployment tools easy
-Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "0.5.6"
+Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "1.0.1"
 
 [UninstallDelete]
 ;Delete Install Info
@@ -526,6 +581,18 @@ begin
   AddFontData('lato', 'Lato-SemiboldItalic.ttf', '8a34fbb379a096d4c5914a962a6f71e1721b40a7');
   AddFontData('lato', 'Lato-Thin.ttf', 'dbe1f622faef3ea3f286d848da6b10f104405060');
   AddFontData('lato', 'Lato-ThinItalic.ttf', '8ce23025cf59e58b9bafdd8526d685d8347267c7');
+  AddFontData('sourcesans', 'SourceSansPro-Black.ttf', '015bc7096ccfafc8807380b8ba38adb5563a08db');
+  AddFontData('sourcesans', 'SourceSansPro-BlackIt.ttf', 'b0c53adf0f8330e918fb26e7f27cb7726d302ea1');
+  AddFontData('sourcesans', 'SourceSansPro-Bold.ttf', 'fa8169be0d5370a134efa92a7db50b471ce2186c');
+  AddFontData('sourcesans', 'SourceSansPro-BoldIt.ttf', '174b389d37802e155c114c518a678765fc0fa926');
+  AddFontData('sourcesans', 'SourceSansPro-ExtraLight.ttf', 'ef807a40f0a039352d774980020527249ab99c67');
+  AddFontData('sourcesans', 'SourceSansPro-ExtraLightIt.ttf', 'e64a18f95fec972b743f1cf5edc57a5dfc3ecab4');
+  AddFontData('sourcesans', 'SourceSansPro-It.ttf', '1a79437400d5acb5dd2208190c588ff1f8beacf8');
+  AddFontData('sourcesans', 'SourceSansPro-Light.ttf', 'eb597d3534ef7ff27cf9591812036865455369d3');
+  AddFontData('sourcesans', 'SourceSansPro-LightIt.ttf', 'd7d0b76d6b16605826de5c6309b671fa713f13b0');
+  AddFontData('sourcesans', 'SourceSansPro-Regular.ttf', '3b0910e841836a3f30a3ccfbd87bb6deed65f233');
+  AddFontData('sourcesans', 'SourceSansPro-Semibold.ttf', '62ff33a5f7dc30693420b743f38af68e44b9d022');
+  AddFontData('sourcesans', 'SourceSansPro-SemiboldIt.ttf', '769618686d0bd5a792db7a7c18e7c148f4b671e5');
 
 end;
 
@@ -678,7 +745,6 @@ begin
            ChangesRequired:=true;
         end;
 
-        ;RegDeleteValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', 'Hack Oblique Regular (TrueType)');
      end;
 
 
@@ -694,6 +760,13 @@ begin
            ChangesRequired:=true;
         end;
      end;
+
+     if IsComponentSelected('sourcesans') then begin        
+        if FontFilesFromSetupAndWindowsAreDifferent('sourcesans') then begin
+           ChangesRequired:=true;
+        end;
+     end;
+
 
 
      FontCacheService_Stopped:=false;
