@@ -18,7 +18,7 @@ An installer for selected Open Source Fonts for Windows.
 
 ## Silent Installation
 
-To install siltently, use the following command:
+To install silently, use the following command:
 
  ``start /wait OSFontPack.exe /TYPE=full /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /CLOSEAPPLICATIONS /NORESTARTAPPLICATIONS``
 
