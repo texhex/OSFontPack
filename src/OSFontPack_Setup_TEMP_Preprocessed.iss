@@ -141,6 +141,7 @@
 ; sourcesans: SourceSansPro_v2_020\SourceSansPro-Regular.ttf - "Source Sans Pro Regular" (3b0910e841836a3f30a3ccfbd87bb6deed65f233)
 ; sourcesans: SourceSansPro_v2_020\SourceSansPro-Semibold.ttf - "Source Sans Pro Semibold" (62ff33a5f7dc30693420b743f38af68e44b9d022)
 ; sourcesans: SourceSansPro_v2_020\SourceSansPro-SemiboldIt.ttf - "Source Sans Pro Semibold Italic" (769618686d0bd5a792db7a7c18e7c148f4b671e5)
+
 ;---END---
 
 
@@ -627,7 +628,51 @@ begin
 end;
 
 
-function FontFilesFromSetupAndWindowsAreDifferent(component:string):boolean;
+
+function IsSetupFontSameAsInstalledFont(fileName:string):boolean;
+var
+  i:integer;
+  entryFound:boolean;
+  registryFontValue:string;
+begin
+  log('IsSetupFontSameAsInstalledFont(): ' + fileName);
+
+  result:=false;
+  entryFound:=false;
+  
+  for i := 0 to GetArrayLength(FontFiles)-1 do begin
+
+      if FontFiles[i]=fileName then begin         
+         entryFound:=true;                  
+
+         if FontFilesHashes[i]=InstalledFontsHashes[i] then begin                 
+            if RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', FontFilesNames[i]+' (TrueType)', registryFontValue) then begin               
+               if registryFontValue=fileName then begin                  
+                  result:=true; //all is exactly as expected
+               end else begin
+                  log('   File name in registry is different, installation required');                  
+               end;            
+            end else begin
+               log('   Font not found in registry, installation required');
+            end;
+         end else begin
+            log('   Hash values (Setup/Windows): ' + FontFilesHashes[i] + ' / ' + InstalledFontsHashes[i]);
+            log('   File is different, installation required');
+         end;
+
+      end;   
+
+   end;
+
+   if entryFound=false then begin
+      RaiseException('No entry in the internal hash arrays found for: ' + fileName);
+   end; 
+
+end;
+
+
+
+function ComponentRequiresInstallation(component:string):boolean;
 var
   i:integer;
 begin
@@ -637,51 +682,36 @@ begin
 
   for i := 0 to GetArrayLength(FontFiles)-1 do begin
       if FontFilesComponents[i]=component then begin
-         if FontFilesHashes[i]<>InstalledFontsHashes[i] then begin
-            
-            log('  Found difference for file ' + FontFiles[i]);
-            result:=true;
-            
+         
+         if IsSetupFontSameAsInstalledFont(FontFiles[i]) then begin
+         end else begin
+            log('   Found difference for file ' + FontFiles[i]);
+            log('   Component requires installation: ' + component);
+
+            result:=true;           
             break;
-         end;       
+         end;
+    
       end;
   end;
 end;
 
+
 function FontFileInstallationRequired(): Boolean;
 var
  file:string;
- i:integer;
- entryFound:boolean;
 begin 
+
   if BeforeInstallActionWasRun=false then begin
      result:=true;
   end else begin 
      file:=ExtractFileName(CurrentFileName);
-     log('FontFileInstallationRequired() called for ' + file);
 
-     result:=false;
-     entryFound:=false;
-  
-     for i := 0 to GetArrayLength(FontFiles)-1 do begin
-         if FontFiles[i]=file then begin         
-            entryFound:=true;  
-            if FontFilesHashes[i]<>InstalledFontsHashes[i] then begin
-               log('  Hash values: ' + FontFilesHashes[i] + ' / ' + InstalledFontsHashes[i]);
-               result:=true;
-            end else begin
-               log('  No intallation required, same file');
-            end;
-
-            break;
-         end;
+     if IsSetupFontSameAsInstalledFont(file) then begin
+        result:=false; //No installation required
+     end else begin
+        result:=true; //Installation required
      end;
-
-     if entryFound=false then begin
-        RaiseException('No entry in the internal hash arrays found for: ' + file);
-     end; 
-
-
   end;
  
 end;
@@ -732,6 +762,7 @@ begin
      
      SetArrayLength(InstalledFontsHashes, GetArrayLength(FontFiles));
      
+     log('---HASH CALCULATION---');
      for i := 0 to GetArrayLength(FontFiles)-1 do begin
          currentFont:=FontFiles[i];
          log('Calculating hash for '+currentFont);
@@ -747,11 +778,14 @@ begin
      
          log('   File in \fonts : ' +  InstalledFontsHashes[i]);
      end;
-
+     log('----------------------');
+     
+     
      ChangesRequired:=false;
 
+
      if IsComponentSelected('hack') then begin        
-        if FontFilesFromSetupAndWindowsAreDifferent('hack') then begin
+        if ComponentRequiresInstallation('hack') then begin
            ChangesRequired:=true;
         end;
 
@@ -759,20 +793,20 @@ begin
 
 
      if IsComponentSelected('roboto') then begin        
-        if FontFilesFromSetupAndWindowsAreDifferent('roboto') then begin
+        if ComponentRequiresInstallation('roboto') then begin
            ChangesRequired:=true;
         end;
      end;
 
 
      if IsComponentSelected('lato') then begin        
-        if FontFilesFromSetupAndWindowsAreDifferent('lato') then begin
+        if ComponentRequiresInstallation('lato') then begin
            ChangesRequired:=true;
         end;
      end;
 
      if IsComponentSelected('sourcesans') then begin        
-        if FontFilesFromSetupAndWindowsAreDifferent('sourcesans') then begin
+        if ComponentRequiresInstallation('sourcesans') then begin
            ChangesRequired:=true;
         end;
      end;

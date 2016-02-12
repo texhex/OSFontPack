@@ -771,8 +771,59 @@ begin
 end;
 
 
-//Returns TRUE if a difference between the alrady calculated HASH values for any file for the component 
-function FontFilesFromSetupAndWindowsAreDifferent(component:string):boolean;
+
+//This function returns TRUE if:
+// - the SHA1 hash of a file inside Windows\fonts is the same as the hash we have calculated
+// - the name in the registry is the same we would use and it points to the same file
+function IsSetupFontSameAsInstalledFont(fileName:string):boolean;
+var
+  i:integer;
+  entryFound:boolean;
+  registryFontValue:string;
+begin
+  log('IsSetupFontSameAsInstalledFont(): ' + fileName);
+
+  result:=false;
+  entryFound:=false;
+  
+  for i := 0 to GetArrayLength(FontFiles)-1 do begin
+
+      //Check SHA1 hash from setup and Windows
+      if FontFiles[i]=fileName then begin         
+         entryFound:=true;                  
+
+         if FontFilesHashes[i]=InstalledFontsHashes[i] then begin                 
+            //Now check if the font registration info in the registry also matches
+            if RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', FontFilesNames[i]+' (TrueType)', registryFontValue) then begin               
+               //Does the value point to the same file as we have ins setup?
+               if registryFontValue=fileName then begin                  
+                  result:=true; //all is exactly as expected
+               end else begin
+                  log('   File name in registry is different, installation required');                  
+               end;            
+            end else begin
+               log('   Font not found in registry, installation required');
+            end;
+         end else begin
+            log('   Hash values (Setup/Windows): ' + FontFilesHashes[i] + ' / ' + InstalledFontsHashes[i]);
+            log('   File is different, installation required');
+         end;
+
+      end;   
+
+   end;
+
+   //Sanity check
+   if entryFound=false then begin
+      RaiseException('No entry in the internal hash arrays found for: ' + fileName);
+   end; 
+
+end;
+
+
+
+//Returns TRUE if a difference between the fonts in component from setup and the already installed fonts
+function ComponentRequiresInstallation(component:string):boolean;
 var
   i:integer;
 begin
@@ -782,55 +833,42 @@ begin
 
   for i := 0 to GetArrayLength(FontFiles)-1 do begin
       if FontFilesComponents[i]=component then begin
-         if FontFilesHashes[i]<>InstalledFontsHashes[i] then begin
-            
-            log('  Found difference for file ' + FontFiles[i]);
-            result:=true;
-            
+         
+         if IsSetupFontSameAsInstalledFont(FontFiles[i]) then begin
+            //File is the same, ignore
+         end else begin
+            //Here we have a change, installation is required!
+            log('   Found difference for file ' + FontFiles[i]);
+            log('   Component requires installation: ' + component);
+
+            //One detected difference is enough to result TRUE
+            result:=true;           
             break;
-         end;       
+         end;
+    
       end;
   end;
 end;
+
 
 //Called for each font that should be installed
 //InnoSetup might call this function BEFORE our BeforeInstallAction is run. If this happens, we will always return TRUE
 function FontFileInstallationRequired(): Boolean;
 var
  file:string;
- i:integer;
- entryFound:boolean;
 begin 
+
   if BeforeInstallActionWasRun=false then begin
      result:=true;
   end else begin 
      //This is the "real" thing once BeforeInstallAction was run
      file:=ExtractFileName(CurrentFileName);
-     log('FontFileInstallationRequired() called for ' + file);
 
-     result:=false;
-     entryFound:=false;
-  
-     for i := 0 to GetArrayLength(FontFiles)-1 do begin
-         if FontFiles[i]=file then begin         
-            entryFound:=true;  
-            if FontFilesHashes[i]<>InstalledFontsHashes[i] then begin
-               log('  Hash values: ' + FontFilesHashes[i] + ' / ' + InstalledFontsHashes[i]);
-               result:=true;
-            end else begin
-               log('  No intallation required, same file');
-            end;
-
-            break;
-         end;
+     if IsSetupFontSameAsInstalledFont(file) then begin
+        result:=false; //No installation required
+     end else begin
+        result:=true; //Installation required
      end;
-
-     //Sanity check
-     if entryFound=false then begin
-        RaiseException('No entry in the internal hash arrays found for: ' + file);
-     end; 
-
-
   end;
  
 end;
@@ -885,6 +923,7 @@ begin
      
      SetArrayLength(InstalledFontsHashes, GetArrayLength(FontFiles));
      
+     log('---HASH CALCULATION---');
      for i := 0 to GetArrayLength(FontFiles)-1 do begin
          currentFont:=FontFiles[i];
          log('Calculating hash for '+currentFont);
@@ -901,15 +940,19 @@ begin
      
          log('   File in \fonts : ' +  InstalledFontsHashes[i]);
      end;
-
+     log('----------------------');
+     
+     
      //Set it to false by default
      ChangesRequired:=false;
 
-     //Now we need to know which components the user has selected and check if we have differences (based on the hash)
+
+     //Now we need to know which components the user has selected and check if we have differences
      //This step is necessary in order to make sure we do not start/stop services for files this setup included, 
      //but the user does not want to install it. In this case, the difference can be ignored.
      if IsComponentSelected('{#hack_component}') then begin        
-        if FontFilesFromSetupAndWindowsAreDifferent('{#hack_component}') then begin
+        //if FontFilesFromSetupAndWindowsAreDifferent('{#hack_component}') then begin
+        if ComponentRequiresInstallation('{#hack_component}') then begin
            ChangesRequired:=true;
         end;
 
@@ -919,20 +962,20 @@ begin
 
 
      if IsComponentSelected('{#roboto_component}') then begin        
-        if FontFilesFromSetupAndWindowsAreDifferent('{#roboto_component}') then begin
+        if ComponentRequiresInstallation('{#roboto_component}') then begin
            ChangesRequired:=true;
         end;
      end;
 
 
      if IsComponentSelected('{#lato_component}') then begin        
-        if FontFilesFromSetupAndWindowsAreDifferent('{#lato_component}') then begin
+        if ComponentRequiresInstallation('{#lato_component}') then begin
            ChangesRequired:=true;
         end;
      end;
 
      if IsComponentSelected('{#sourcesans_component}') then begin        
-        if FontFilesFromSetupAndWindowsAreDifferent('{#sourcesans_component}') then begin
+        if ComponentRequiresInstallation('{#sourcesans_component}') then begin
            ChangesRequired:=true;
         end;
      end;
