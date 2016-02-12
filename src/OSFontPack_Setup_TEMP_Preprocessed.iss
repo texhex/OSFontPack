@@ -88,54 +88,59 @@
 
 
 
+
 ;---DEBUG---
-;Font file output
-; Hack-Bold.ttf
-; Hack-BoldItalic.ttf
-; Hack-Regular.ttf
-; Hack-Italic.ttf
-; Roboto-Black.ttf
-; Roboto-BlackItalic.ttf
-; Roboto-Bold.ttf
-; Roboto-BoldItalic.ttf
-; Roboto-Italic.ttf
-; Roboto-Light.ttf
-; Roboto-LightItalic.ttf
-; Roboto-Medium.ttf
-; Roboto-MediumItalic.ttf
-; Roboto-Regular.ttf
-; Roboto-Thin.ttf
-; Roboto-ThinItalic.ttf
-; Lato-Black.ttf
-; Lato-BlackItalic.ttf
-; Lato-Bold.ttf
-; Lato-BoldItalic.ttf
-; Lato-Hairline.ttf
-; Lato-HairlineItalic.ttf
-; Lato-Heavy.ttf
-; Lato-HeavyItalic.ttf
-; Lato-Italic.ttf
-; Lato-Light.ttf
-; Lato-LightItalic.ttf
-; Lato-Medium.ttf
-; Lato-MediumItalic.ttf
-; Lato-Regular.ttf
-; Lato-Semibold.ttf
-; Lato-SemiboldItalic.ttf
-; Lato-Thin.ttf
-; Lato-ThinItalic.ttf
-; SourceSansPro-Black.ttf
-; SourceSansPro-BlackIt.ttf
-; SourceSansPro-Bold.ttf
-; SourceSansPro-BoldIt.ttf
-; SourceSansPro-ExtraLight.ttf
-; SourceSansPro-ExtraLightIt.ttf
-; SourceSansPro-It.ttf
-; SourceSansPro-Light.ttf
-; SourceSansPro-LightIt.ttf
-; SourceSansPro-Regular.ttf
-; SourceSansPro-Semibold.ttf
-; SourceSansPro-SemiboldIt.ttf
+;This output ensures that we do not have font_xxx array elements that are empty.
+
+;Because the sub expects a string for each item, an error from ISPP about "Actual datatype not declared type" 
+;when compiling the setup indicates that total_fonts is set to a wrong value
+  
+; hack: Hack_v2_019\Hack-Bold.ttf - "Hack Bold" (88b4fa8e7d1aa8fe2d2d3f52a75cb2cf44b83c7a)
+; hack: Hack_v2_019\Hack-BoldItalic.ttf - "Hack Bold Italic" (a977e19b2b69c39eda63cd57fb41f55ef1fef38a)
+; hack: Hack_v2_019\Hack-Regular.ttf - "Hack" (3d5f3ccfa40406ad252b76a2219cb629df8e5ab3)
+; hack: Hack_v2_019\Hack-Italic.ttf - "Hack Italic" (5d00974b49990e543f55b4aec2ea83660c8a49bf)
+; roboto: Roboto_v2_1171\Roboto-Black.ttf - "Roboto Black" (771b45f0ceb2a752cd0d705187468e6993fd0fb9)
+; roboto: Roboto_v2_1171\Roboto-BlackItalic.ttf - "Roboto Black Italic" (dfcf1003251caffcc9b94057d9845a5626b02fa3)
+; roboto: Roboto_v2_1171\Roboto-Bold.ttf - "Roboto Bold" (0a1793926e2ee724cf2ff3fc7adc745348659f82)
+; roboto: Roboto_v2_1171\Roboto-BoldItalic.ttf - "Roboto Bold Italic" (23d74d6edc2cc6f0ae9e07e0094ebd3969e25b27)
+; roboto: Roboto_v2_1171\Roboto-Italic.ttf - "Roboto Italic" (7703c7ab71c35f62289734f6b5431589008e700c)
+; roboto: Roboto_v2_1171\Roboto-Light.ttf - "Roboto Light" (2e3148d213b15328ebebba14e828fb3bf79634ee)
+; roboto: Roboto_v2_1171\Roboto-LightItalic.ttf - "Roboto Light Italic" (947d4adbf4d1643a979972c83842899e752ee826)
+; roboto: Roboto_v2_1171\Roboto-Medium.ttf - "Roboto Medium" (08bab5b1ab478e8af2279b613d3a32636b85cc65)
+; roboto: Roboto_v2_1171\Roboto-MediumItalic.ttf - "Roboto Medium Italic" (85304ad8ca294b9cefc65874d48a70a271635d28)
+; roboto: Roboto_v2_1171\Roboto-Regular.ttf - "Roboto" (cb0cb91a31f43293bd7042ddab945ce161c29d3d)
+; roboto: Roboto_v2_1171\Roboto-Thin.ttf - "Roboto Thin" (0fd03ae48dc48825c79b346fd981f55a01acf9e1)
+; roboto: Roboto_v2_1171\Roboto-ThinItalic.ttf - "Roboto Thin Italic" (b61b6329c1b273fd662e638fb9cff02811d6d769)
+; lato: Lato_v2_015\Lato-Black.ttf - "Lato Black" (b9c952639741f5b7479e1ff6d1561a3df7e8f83a)
+; lato: Lato_v2_015\Lato-BlackItalic.ttf - "Lato Black Italic" (4bde1231ff7afccfdf4f77f086c0e9a93a4f3e46)
+; lato: Lato_v2_015\Lato-Bold.ttf - "Lato Bold" (6b2c7b124cbf0aaeba48d57fb0fa19f2c6c69683)
+; lato: Lato_v2_015\Lato-BoldItalic.ttf - "Lato Bold Italic" (bf9e7d4a6185b53a256272869e66762c1e5d503b)
+; lato: Lato_v2_015\Lato-Hairline.ttf - "Lato Hairline" (79c1dd6a9c740ef36272a9742504864a6f912be7)
+; lato: Lato_v2_015\Lato-HairlineItalic.ttf - "Lato Hairline Italic" (ea271649cc2f58a61fc819c9ca82eb8724717a2f)
+; lato: Lato_v2_015\Lato-Heavy.ttf - "Lato Heavy" (068af974d1346b61d9ee1e097374f2f3cac6c442)
+; lato: Lato_v2_015\Lato-HeavyItalic.ttf - "Lato Heavy Italic" (f2d4047e1f5efd405b850abe23ccfdc2ceb1b3f8)
+; lato: Lato_v2_015\Lato-Italic.ttf - "Lato Italic" (63c5d4424bc3466477be05dc122799df7665e571)
+; lato: Lato_v2_015\Lato-Light.ttf - "Lato Light" (a405c8288a8a90881407f93b6ee02b29e26a8735)
+; lato: Lato_v2_015\Lato-LightItalic.ttf - "Lato Light Italic" (f05f3b58c5abd991036a1b43bd601556244ffe9e)
+; lato: Lato_v2_015\Lato-Medium.ttf - "Lato Medium" (c78e94b7cc0b782eef4f9f2be371c3cf9c3f6eaf)
+; lato: Lato_v2_015\Lato-MediumItalic.ttf - "Lato Medium Italic" (df1a7160502d9e90c41b92b7243270a769904786)
+; lato: Lato_v2_015\Lato-Regular.ttf - "Lato" (f59f9e4f3cbee981a5e6f58a279f9b9613f22599)
+; lato: Lato_v2_015\Lato-Semibold.ttf - "Lato Semibold" (96569e2cfcc3a298bb1aea21103d0d1e3c7e2ed4)
+; lato: Lato_v2_015\Lato-SemiboldItalic.ttf - "Lato Semibold Italic" (8a34fbb379a096d4c5914a962a6f71e1721b40a7)
+; lato: Lato_v2_015\Lato-Thin.ttf - "Lato Thin" (dbe1f622faef3ea3f286d848da6b10f104405060)
+; lato: Lato_v2_015\Lato-ThinItalic.ttf - "Lato Thin Italic" (8ce23025cf59e58b9bafdd8526d685d8347267c7)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-Black.ttf - "Source Sans Pro Black" (015bc7096ccfafc8807380b8ba38adb5563a08db)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-BlackIt.ttf - "Source Sans Pro Black Italic" (b0c53adf0f8330e918fb26e7f27cb7726d302ea1)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-Bold.ttf - "Source Sans Pro Bold" (fa8169be0d5370a134efa92a7db50b471ce2186c)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-BoldIt.ttf - "Source Sans Pro Bold Italic" (174b389d37802e155c114c518a678765fc0fa926)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-ExtraLight.ttf - "Source Sans Pro ExtraLight" (ef807a40f0a039352d774980020527249ab99c67)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-ExtraLightIt.ttf - "Source Sans Pro ExtraLight Italic" (e64a18f95fec972b743f1cf5edc57a5dfc3ecab4)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-It.ttf - "Source Sans Pro Italic" (1a79437400d5acb5dd2208190c588ff1f8beacf8)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-Light.ttf - "Source Sans Pro Light" (eb597d3534ef7ff27cf9591812036865455369d3)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-LightIt.ttf - "Source Sans Pro Light Italic" (d7d0b76d6b16605826de5c6309b671fa713f13b0)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-Regular.ttf - "Source Sans Pro Regular" (3b0910e841836a3f30a3ccfbd87bb6deed65f233)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-Semibold.ttf - "Source Sans Pro Semibold" (62ff33a5f7dc30693420b743f38af68e44b9d022)
+; sourcesans: SourceSansPro_v2_020\SourceSansPro-SemiboldIt.ttf - "Source Sans Pro Semibold Italic" (769618686d0bd5a792db7a7c18e7c148f4b671e5)
 ;---END---
 
 
@@ -161,8 +166,8 @@ AppId=OSFontPack
 SetupMutex=OSFontPack_Setup_Mutex 
 
 AppName=Open Source Font Pack
-AppVersion=1.0.2
-VersionInfoVersion=1.0.2
+AppVersion=1.1.2
+VersionInfoVersion=1.1.2
 
 AppPublisher=Michael 'Tex' Hex
 AppSupportURL=https://github.com/texhex/OSFontPack
@@ -345,7 +350,7 @@ Type: files; Name: "{fonts}\Hack-RegularOblique.ttf"; Components: hack;
  
 [INI]
 ;Create an ini to make detection for enterprise deployment tools easy
-Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "1.0.2"
+Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "1.1.2"
 
 [UninstallDelete]
 ;Delete Install Info
@@ -406,7 +411,8 @@ var
   FontFiles: array of string;
   FontFilesComponents: array of string;
   FontFilesHashes: array of string;
-
+  FontFilesNames: array of string;
+  
   InstalledFontsHashes: array of string;
 
   FontCacheService_Stopped:boolean;
@@ -526,7 +532,7 @@ end;
 
 
 
-procedure AddFontData(component, fontName, fontHash:string);
+procedure AddFontData(component, fontFile, fontName, fontHash :string);
 var
   curSize: integer;
 begin
@@ -535,10 +541,13 @@ begin
   SetArrayLength(FontFiles, curSize+1)
   SetArrayLength(FontFilesComponents, curSize+1)
   SetArrayLength(FontFilesHashes, curSize+1)
+  SetArrayLength(FontFilesNames, curSize+1)
+  
 
-  FontFiles[curSize]:=fontName;
+  FontFiles[curSize]:=fontFile;
   FontFilesComponents[curSize]:=component;
   FontFilesHashes[curSize]:=fontHash;
+  FontFilesNames[curSize]:=fontName;
 end;
 
 
@@ -547,52 +556,53 @@ begin
 
 
 
-  AddFontData('hack', 'Hack-Bold.ttf', '88b4fa8e7d1aa8fe2d2d3f52a75cb2cf44b83c7a');
-  AddFontData('hack', 'Hack-BoldItalic.ttf', 'a977e19b2b69c39eda63cd57fb41f55ef1fef38a');
-  AddFontData('hack', 'Hack-Regular.ttf', '3d5f3ccfa40406ad252b76a2219cb629df8e5ab3');
-  AddFontData('hack', 'Hack-Italic.ttf', '5d00974b49990e543f55b4aec2ea83660c8a49bf');
-  AddFontData('roboto', 'Roboto-Black.ttf', '771b45f0ceb2a752cd0d705187468e6993fd0fb9');
-  AddFontData('roboto', 'Roboto-BlackItalic.ttf', 'dfcf1003251caffcc9b94057d9845a5626b02fa3');
-  AddFontData('roboto', 'Roboto-Bold.ttf', '0a1793926e2ee724cf2ff3fc7adc745348659f82');
-  AddFontData('roboto', 'Roboto-BoldItalic.ttf', '23d74d6edc2cc6f0ae9e07e0094ebd3969e25b27');
-  AddFontData('roboto', 'Roboto-Italic.ttf', '7703c7ab71c35f62289734f6b5431589008e700c');
-  AddFontData('roboto', 'Roboto-Light.ttf', '2e3148d213b15328ebebba14e828fb3bf79634ee');
-  AddFontData('roboto', 'Roboto-LightItalic.ttf', '947d4adbf4d1643a979972c83842899e752ee826');
-  AddFontData('roboto', 'Roboto-Medium.ttf', '08bab5b1ab478e8af2279b613d3a32636b85cc65');
-  AddFontData('roboto', 'Roboto-MediumItalic.ttf', '85304ad8ca294b9cefc65874d48a70a271635d28');
-  AddFontData('roboto', 'Roboto-Regular.ttf', 'cb0cb91a31f43293bd7042ddab945ce161c29d3d');
-  AddFontData('roboto', 'Roboto-Thin.ttf', '0fd03ae48dc48825c79b346fd981f55a01acf9e1');
-  AddFontData('roboto', 'Roboto-ThinItalic.ttf', 'b61b6329c1b273fd662e638fb9cff02811d6d769');
-  AddFontData('lato', 'Lato-Black.ttf', 'b9c952639741f5b7479e1ff6d1561a3df7e8f83a');
-  AddFontData('lato', 'Lato-BlackItalic.ttf', '4bde1231ff7afccfdf4f77f086c0e9a93a4f3e46');
-  AddFontData('lato', 'Lato-Bold.ttf', '6b2c7b124cbf0aaeba48d57fb0fa19f2c6c69683');
-  AddFontData('lato', 'Lato-BoldItalic.ttf', 'bf9e7d4a6185b53a256272869e66762c1e5d503b');
-  AddFontData('lato', 'Lato-Hairline.ttf', '79c1dd6a9c740ef36272a9742504864a6f912be7');
-  AddFontData('lato', 'Lato-HairlineItalic.ttf', 'ea271649cc2f58a61fc819c9ca82eb8724717a2f');
-  AddFontData('lato', 'Lato-Heavy.ttf', '068af974d1346b61d9ee1e097374f2f3cac6c442');
-  AddFontData('lato', 'Lato-HeavyItalic.ttf', 'f2d4047e1f5efd405b850abe23ccfdc2ceb1b3f8');
-  AddFontData('lato', 'Lato-Italic.ttf', '63c5d4424bc3466477be05dc122799df7665e571');
-  AddFontData('lato', 'Lato-Light.ttf', 'a405c8288a8a90881407f93b6ee02b29e26a8735');
-  AddFontData('lato', 'Lato-LightItalic.ttf', 'f05f3b58c5abd991036a1b43bd601556244ffe9e');
-  AddFontData('lato', 'Lato-Medium.ttf', 'c78e94b7cc0b782eef4f9f2be371c3cf9c3f6eaf');
-  AddFontData('lato', 'Lato-MediumItalic.ttf', 'df1a7160502d9e90c41b92b7243270a769904786');
-  AddFontData('lato', 'Lato-Regular.ttf', 'f59f9e4f3cbee981a5e6f58a279f9b9613f22599');
-  AddFontData('lato', 'Lato-Semibold.ttf', '96569e2cfcc3a298bb1aea21103d0d1e3c7e2ed4');
-  AddFontData('lato', 'Lato-SemiboldItalic.ttf', '8a34fbb379a096d4c5914a962a6f71e1721b40a7');
-  AddFontData('lato', 'Lato-Thin.ttf', 'dbe1f622faef3ea3f286d848da6b10f104405060');
-  AddFontData('lato', 'Lato-ThinItalic.ttf', '8ce23025cf59e58b9bafdd8526d685d8347267c7');
-  AddFontData('sourcesans', 'SourceSansPro-Black.ttf', '015bc7096ccfafc8807380b8ba38adb5563a08db');
-  AddFontData('sourcesans', 'SourceSansPro-BlackIt.ttf', 'b0c53adf0f8330e918fb26e7f27cb7726d302ea1');
-  AddFontData('sourcesans', 'SourceSansPro-Bold.ttf', 'fa8169be0d5370a134efa92a7db50b471ce2186c');
-  AddFontData('sourcesans', 'SourceSansPro-BoldIt.ttf', '174b389d37802e155c114c518a678765fc0fa926');
-  AddFontData('sourcesans', 'SourceSansPro-ExtraLight.ttf', 'ef807a40f0a039352d774980020527249ab99c67');
-  AddFontData('sourcesans', 'SourceSansPro-ExtraLightIt.ttf', 'e64a18f95fec972b743f1cf5edc57a5dfc3ecab4');
-  AddFontData('sourcesans', 'SourceSansPro-It.ttf', '1a79437400d5acb5dd2208190c588ff1f8beacf8');
-  AddFontData('sourcesans', 'SourceSansPro-Light.ttf', 'eb597d3534ef7ff27cf9591812036865455369d3');
-  AddFontData('sourcesans', 'SourceSansPro-LightIt.ttf', 'd7d0b76d6b16605826de5c6309b671fa713f13b0');
-  AddFontData('sourcesans', 'SourceSansPro-Regular.ttf', '3b0910e841836a3f30a3ccfbd87bb6deed65f233');
-  AddFontData('sourcesans', 'SourceSansPro-Semibold.ttf', '62ff33a5f7dc30693420b743f38af68e44b9d022');
-  AddFontData('sourcesans', 'SourceSansPro-SemiboldIt.ttf', '769618686d0bd5a792db7a7c18e7c148f4b671e5');
+
+  AddFontData('hack', 'Hack-Bold.ttf', 'Hack Bold', '88b4fa8e7d1aa8fe2d2d3f52a75cb2cf44b83c7a');
+  AddFontData('hack', 'Hack-BoldItalic.ttf', 'Hack Bold Italic', 'a977e19b2b69c39eda63cd57fb41f55ef1fef38a');
+  AddFontData('hack', 'Hack-Regular.ttf', 'Hack', '3d5f3ccfa40406ad252b76a2219cb629df8e5ab3');
+  AddFontData('hack', 'Hack-Italic.ttf', 'Hack Italic', '5d00974b49990e543f55b4aec2ea83660c8a49bf');
+  AddFontData('roboto', 'Roboto-Black.ttf', 'Roboto Black', '771b45f0ceb2a752cd0d705187468e6993fd0fb9');
+  AddFontData('roboto', 'Roboto-BlackItalic.ttf', 'Roboto Black Italic', 'dfcf1003251caffcc9b94057d9845a5626b02fa3');
+  AddFontData('roboto', 'Roboto-Bold.ttf', 'Roboto Bold', '0a1793926e2ee724cf2ff3fc7adc745348659f82');
+  AddFontData('roboto', 'Roboto-BoldItalic.ttf', 'Roboto Bold Italic', '23d74d6edc2cc6f0ae9e07e0094ebd3969e25b27');
+  AddFontData('roboto', 'Roboto-Italic.ttf', 'Roboto Italic', '7703c7ab71c35f62289734f6b5431589008e700c');
+  AddFontData('roboto', 'Roboto-Light.ttf', 'Roboto Light', '2e3148d213b15328ebebba14e828fb3bf79634ee');
+  AddFontData('roboto', 'Roboto-LightItalic.ttf', 'Roboto Light Italic', '947d4adbf4d1643a979972c83842899e752ee826');
+  AddFontData('roboto', 'Roboto-Medium.ttf', 'Roboto Medium', '08bab5b1ab478e8af2279b613d3a32636b85cc65');
+  AddFontData('roboto', 'Roboto-MediumItalic.ttf', 'Roboto Medium Italic', '85304ad8ca294b9cefc65874d48a70a271635d28');
+  AddFontData('roboto', 'Roboto-Regular.ttf', 'Roboto', 'cb0cb91a31f43293bd7042ddab945ce161c29d3d');
+  AddFontData('roboto', 'Roboto-Thin.ttf', 'Roboto Thin', '0fd03ae48dc48825c79b346fd981f55a01acf9e1');
+  AddFontData('roboto', 'Roboto-ThinItalic.ttf', 'Roboto Thin Italic', 'b61b6329c1b273fd662e638fb9cff02811d6d769');
+  AddFontData('lato', 'Lato-Black.ttf', 'Lato Black', 'b9c952639741f5b7479e1ff6d1561a3df7e8f83a');
+  AddFontData('lato', 'Lato-BlackItalic.ttf', 'Lato Black Italic', '4bde1231ff7afccfdf4f77f086c0e9a93a4f3e46');
+  AddFontData('lato', 'Lato-Bold.ttf', 'Lato Bold', '6b2c7b124cbf0aaeba48d57fb0fa19f2c6c69683');
+  AddFontData('lato', 'Lato-BoldItalic.ttf', 'Lato Bold Italic', 'bf9e7d4a6185b53a256272869e66762c1e5d503b');
+  AddFontData('lato', 'Lato-Hairline.ttf', 'Lato Hairline', '79c1dd6a9c740ef36272a9742504864a6f912be7');
+  AddFontData('lato', 'Lato-HairlineItalic.ttf', 'Lato Hairline Italic', 'ea271649cc2f58a61fc819c9ca82eb8724717a2f');
+  AddFontData('lato', 'Lato-Heavy.ttf', 'Lato Heavy', '068af974d1346b61d9ee1e097374f2f3cac6c442');
+  AddFontData('lato', 'Lato-HeavyItalic.ttf', 'Lato Heavy Italic', 'f2d4047e1f5efd405b850abe23ccfdc2ceb1b3f8');
+  AddFontData('lato', 'Lato-Italic.ttf', 'Lato Italic', '63c5d4424bc3466477be05dc122799df7665e571');
+  AddFontData('lato', 'Lato-Light.ttf', 'Lato Light', 'a405c8288a8a90881407f93b6ee02b29e26a8735');
+  AddFontData('lato', 'Lato-LightItalic.ttf', 'Lato Light Italic', 'f05f3b58c5abd991036a1b43bd601556244ffe9e');
+  AddFontData('lato', 'Lato-Medium.ttf', 'Lato Medium', 'c78e94b7cc0b782eef4f9f2be371c3cf9c3f6eaf');
+  AddFontData('lato', 'Lato-MediumItalic.ttf', 'Lato Medium Italic', 'df1a7160502d9e90c41b92b7243270a769904786');
+  AddFontData('lato', 'Lato-Regular.ttf', 'Lato', 'f59f9e4f3cbee981a5e6f58a279f9b9613f22599');
+  AddFontData('lato', 'Lato-Semibold.ttf', 'Lato Semibold', '96569e2cfcc3a298bb1aea21103d0d1e3c7e2ed4');
+  AddFontData('lato', 'Lato-SemiboldItalic.ttf', 'Lato Semibold Italic', '8a34fbb379a096d4c5914a962a6f71e1721b40a7');
+  AddFontData('lato', 'Lato-Thin.ttf', 'Lato Thin', 'dbe1f622faef3ea3f286d848da6b10f104405060');
+  AddFontData('lato', 'Lato-ThinItalic.ttf', 'Lato Thin Italic', '8ce23025cf59e58b9bafdd8526d685d8347267c7');
+  AddFontData('sourcesans', 'SourceSansPro-Black.ttf', 'Source Sans Pro Black', '015bc7096ccfafc8807380b8ba38adb5563a08db');
+  AddFontData('sourcesans', 'SourceSansPro-BlackIt.ttf', 'Source Sans Pro Black Italic', 'b0c53adf0f8330e918fb26e7f27cb7726d302ea1');
+  AddFontData('sourcesans', 'SourceSansPro-Bold.ttf', 'Source Sans Pro Bold', 'fa8169be0d5370a134efa92a7db50b471ce2186c');
+  AddFontData('sourcesans', 'SourceSansPro-BoldIt.ttf', 'Source Sans Pro Bold Italic', '174b389d37802e155c114c518a678765fc0fa926');
+  AddFontData('sourcesans', 'SourceSansPro-ExtraLight.ttf', 'Source Sans Pro ExtraLight', 'ef807a40f0a039352d774980020527249ab99c67');
+  AddFontData('sourcesans', 'SourceSansPro-ExtraLightIt.ttf', 'Source Sans Pro ExtraLight Italic', 'e64a18f95fec972b743f1cf5edc57a5dfc3ecab4');
+  AddFontData('sourcesans', 'SourceSansPro-It.ttf', 'Source Sans Pro Italic', '1a79437400d5acb5dd2208190c588ff1f8beacf8');
+  AddFontData('sourcesans', 'SourceSansPro-Light.ttf', 'Source Sans Pro Light', 'eb597d3534ef7ff27cf9591812036865455369d3');
+  AddFontData('sourcesans', 'SourceSansPro-LightIt.ttf', 'Source Sans Pro Light Italic', 'd7d0b76d6b16605826de5c6309b671fa713f13b0');
+  AddFontData('sourcesans', 'SourceSansPro-Regular.ttf', 'Source Sans Pro Regular', '3b0910e841836a3f30a3ccfbd87bb6deed65f233');
+  AddFontData('sourcesans', 'SourceSansPro-Semibold.ttf', 'Source Sans Pro Semibold', '62ff33a5f7dc30693420b743f38af68e44b9d022');
+  AddFontData('sourcesans', 'SourceSansPro-SemiboldIt.ttf', 'Source Sans Pro Semibold Italic', '769618686d0bd5a792db7a7c18e7c148f4b671e5');
 
 end;
 

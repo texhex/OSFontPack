@@ -19,7 +19,7 @@
 //#define DEBUG
 
 //Update this when releasing a new version
-#define public Version '1.0.2'
+#define public Version '1.1.2'
 
 
 //--------------------------------------------------------------------
@@ -203,7 +203,7 @@
 #define font_component[cntr] lato_component
 #define font_source[cntr] lato_sourcefolder
 #define font_file[cntr] 'Lato-HairlineItalic.ttf'
-#define font_name[cntr] 'Lato Hairline Italic'                         
+#define font_name[cntr] 'Lato Hairline Italic'   
 #define cntr cntr+1
 
 #define font_component[cntr] lato_component
@@ -359,15 +359,27 @@
 #define font_name[cntr] 'Source Sans Pro Semibold Italic'
 #define cntr cntr+1
 
+//---------------------------------------------------------
+
+//Helper macro to generate a SHA1 hash for a font file
+#define public GetSHA1OfFontFile(str fontFolder, str fontFile) \
+  GetSHA1OfFile(base_path + 'fonts\' + fontFolder + '\' + fontFile)
 
 ;---DEBUG---
-;Font file output
+;This output ensures that we do not have font_xxx array elements that are empty.
+#define public GetFontDataDebugOutput(str component, str source, str fileName, str fontName) \
+   component + ': ' + source + '\' + fileName + ' - "' + fontName + '"'
+
+;Because the sub expects a string for each item, an error from ISPP about "Actual datatype not declared type" 
+;when compiling the setup indicates that total_fonts is set to a wrong value
+  
 #define public i 0
-#sub Sub_JustTesting
-  #emit '; ' + font_file[i]
+#sub Sub_DebugFontDataOutput
+  #emit '; ' + GetFontDataDebugOutput(font_component[i], font_source[i], font_file[i], font_name[i]) + ' (' + GetSHA1OfFontFile(font_source[i], font_file[i]) + ')'
 #endsub
-#for {i = 0; i < DimOf(font_file); i++} Sub_JustTesting
+#for {i = 0; i < DimOf(font_file); i++} Sub_DebugFontDataOutput
 #undef i
+
 ;---END---
 
 
@@ -566,7 +578,9 @@ var
   FontFilesComponents: array of string;
   //SHA1 hashes for these files
   FontFilesHashes: array of string;
-
+  //Font names for these files
+  FontFilesNames: array of string;
+  
   //SHA1 hashes for fonts already installed
   InstalledFontsHashes: array of string;
 
@@ -694,7 +708,7 @@ end;
 
 
 //Adds font data (created at setup creation) to the runtime Font* arrays
-procedure AddFontData(component, fontName, fontHash:string);
+procedure AddFontData(component, fontFile, fontName, fontHash :string);
 var
   curSize: integer;
 begin
@@ -703,10 +717,13 @@ begin
   SetArrayLength(FontFiles, curSize+1)
   SetArrayLength(FontFilesComponents, curSize+1)
   SetArrayLength(FontFilesHashes, curSize+1)
+  SetArrayLength(FontFilesNames, curSize+1)
+  
 
-  FontFiles[curSize]:=fontName;
+  FontFiles[curSize]:=fontFile;
   FontFilesComponents[curSize]:=component;
   FontFilesHashes[curSize]:=fontHash;
+  FontFilesNames[curSize]:=fontName;
 end;
 
 
@@ -715,17 +732,15 @@ procedure FillFontData();
 begin
 
 //Helper macro to generate a pascal script function call with the font filename and the SHA1 hash 
-#define public AddFontDataMacro(str fileName, str component, str SHA1Hash) \
-  '  AddFontData(''' + component + '''' + ', ''' + fileName + ''', ''' + SHA1Hash + ''');'
+#define public AddFontDataMacro(str fileName, str component, strFontName, str SHA1Hash) \
+  '  AddFontData(''' + component + '''' + ', ''' + fileName + ''', ''' + strFontName + ''', ''' + SHA1Hash + ''');'
 
-//Helper macro to generate a SHA1 hash for a font file
-#define public GetSHA1OfFontFile(str fontFolder, str fontFile) \
-  GetSHA1OfFile(base_path + 'fonts\' + fontFolder + '\' + fontFile)
+
 
 //Generate AddFontData(....) calls
 #define public i 0  
 #sub Sub_FontDataGenerateHash
- #emit  AddFontDataMacro(font_file[i], font_component[i], GetSHA1OfFontFile(font_source[i], font_file[i])) 
+ #emit  AddFontDataMacro(font_file[i], font_component[i], font_name[i], GetSHA1OfFontFile(font_source[i], font_file[i])) 
 #endsub
 #for {i = 0; i < DimOf(font_file); i++} Sub_FontDataGenerateHash
 #undef public i
@@ -1036,4 +1051,4 @@ end;
 
 
 
-#expr SaveToFile(AddBackslash(SourcePath) + "zz_Temp_Preprocessed.iss")
+#expr SaveToFile(AddBackslash(SourcePath) + "OSFontPack_Setup_TEMP_Preprocessed.iss")
