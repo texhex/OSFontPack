@@ -26,6 +26,12 @@ To remove silently:
 
  ``C:\Program Files\Open Source Font Pack\unins000.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART``
 
+## Troubleshooting
+
+OSFontPack.exe always creates a log file as C:\Users\(YourUsername)\AppData\Local\Temp\Setup Log (Year-Month-Day) #<XXX>.txt.
+
+Note that if you have EMET active with the "Only trusted fonts" option you need to declare the fonts as trusted or they will not be visible.
+
 ## Contributions
 
 Any constructive contribution is very welcome! 
