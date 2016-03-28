@@ -22,13 +22,19 @@ To install silently, use the following command:
 
  ``start /wait OSFontPack.exe /TYPE=full /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /CLOSEAPPLICATIONS /NORESTARTAPPLICATIONS``
 
-To remove silently: 
+To install only some fonts (e.g. Hack and Lato) use:
+
+ ``start /wait OSFontPack.exe /COMPONENTS=hack,lato /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /CLOSEAPPLICATIONS /NORESTARTAPPLICATIONS``
+
+Supported components are: ``hack lato roboto sourcesans``.
+
+To remove everything silently: 
 
  ``C:\Program Files\Open Source Font Pack\unins000.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART``
 
 ## Troubleshooting
 
-OSFontPack.exe always creates a log file as C:\Users\(YourUsername)\AppData\Local\Temp\Setup Log (Year-Month-Day) #<XXX>.txt.
+OSFontPack.exe always creates a log file as C:\Users\ (Username) \AppData\Local\Temp\Setup Log (Year-Month-Day) #<XXX>.txt.
 
 Note that if you have EMET active with the "Only trusted fonts" option you need to declare the fonts as trusted or they will not be visible.
 

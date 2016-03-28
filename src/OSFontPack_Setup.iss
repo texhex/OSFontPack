@@ -14,12 +14,12 @@
 
 
 
-
 //Disable the following line when releasing the setup
 //#define DEBUG
 
 //Update this when releasing a new version
-#define public Version '1.1.2'
+#define public Version '1.2.0'
+
 
 
 //--------------------------------------------------------------------
@@ -38,7 +38,7 @@
 
 
 //Total number of font entries we have
-#define total_fonts 46
+#define total_fonts 52
 //--------------------------
 
 
@@ -85,7 +85,7 @@
 
 //Definition for Roboto Font
 #define public roboto_component 'roboto'
-#define public roboto_sourcefolder 'Roboto_v2_1171'
+#define public roboto_sourcefolder 'Roboto_v2_131'
 #define roboto_description 'Roboto by Christian Robertson'
 #define roboto_homepage 'https://github.com/google/roboto'
 
@@ -160,6 +160,43 @@
 #define font_source[cntr] roboto_sourcefolder
 #define font_file[cntr] 'Roboto-ThinItalic.ttf'
 #define font_name[cntr] 'Roboto Thin Italic'
+#define cntr cntr+1
+
+//   Roboto Condensed
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'RobotoCondensed-Regular.ttf'
+#define font_name[cntr] 'Roboto Condensed' /*Regular is not used by Windows, so we need to remove this from the font name*/
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'RobotoCondensed-Bold.ttf'
+#define font_name[cntr] 'Roboto Condensed Bold'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'RobotoCondensed-BoldItalic.ttf'
+#define font_name[cntr] 'Roboto Condensed Bold Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'RobotoCondensed-Italic.ttf'
+#define font_name[cntr] 'Roboto Condensed Italic'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'RobotoCondensed-Light.ttf'
+#define font_name[cntr] 'Roboto Condensed Light'
+#define cntr cntr+1
+
+#define font_component[cntr] roboto_component
+#define font_source[cntr] roboto_sourcefolder
+#define font_file[cntr] 'RobotoCondensed-LightItalic.ttf'
+#define font_name[cntr] 'Roboto Condensed Light Italic'
 #define cntr cntr+1
 
 
