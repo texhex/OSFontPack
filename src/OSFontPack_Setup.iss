@@ -832,7 +832,7 @@ begin
          if FontFilesHashes[i]=InstalledFontsHashes[i] then begin                 
             //Now check if the font registration info in the registry also matches
             if RegQueryStringValue(HKLM, 'SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts', FontFilesNames[i]+' (TrueType)', registryFontValue) then begin               
-               //Does the value point to the same file as we have ins setup?
+               //Does the value point to the same file as we have in setup?
                if registryFontValue=fileName then begin                  
                   result:=true; //all is exactly as expected
                end else begin
