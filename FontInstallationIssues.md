@@ -14,7 +14,7 @@ When copying TTF files by simply dropping them onto the *Fonts* applet from Cont
 
 Depending on the application and the caching method it can happen that the application continues to use the old font file.
  
-*OSFontPack.exe* will delete any (Fontname)_*.ttf for each font file it installs. However, if a font file was renamed, *OSFontPack.exe* won’t delete the old _0.ttf file because this deletion is executed upon installation and depends on the current font names.
+*OSFontPack.exe* will delete any *(Fontname)_X.ttf* for each font file it installs. However, if a font file was renamed, *OSFontPack.exe* won’t delete the old _0.ttf file because this deletion is executed upon installation and depends on the current font names.
 
 ##Some fonts can be locked
 
