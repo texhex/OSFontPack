@@ -1019,7 +1019,7 @@ begin
 
 
 
-     //If at least ine file will be installed, we will stop the "Windows Font Cache Service" and the "Windows Presentation Foundation Font Cache".
+     //If at least one file will be installed, we will stop the "Windows Font Cache Service" and the "Windows Presentation Foundation Font Cache".
      //This will ensure that that these services update their internal database
      //If users still report about broken fonts, we will need to delete FontCache-S*.dat and ~FontCache-S*.dat from  C:\Windows\ServiceProfiles\LocalService\AppData\Local\FontCache 
      FontCacheService_Stopped:=false;
