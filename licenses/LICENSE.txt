@@ -4,16 +4,17 @@ https://github.com/texhex/OSFontPack
 Licensed under the MIT License
    https://github.com/texhex/OSFontPack/blob/master/licenses/LICENSE.txt
    The license is distributed with this software as LICENSE-OSFontPack.txt
-  
+
+   
 Hack
-Copyright 2015, Christopher Simpkins with Reserved Font Name Hack.
+Copyright 2015-2016, Christopher Simpkins with Reserved Font Name Hack.
 https://github.com/chrissimpkins/Hack
-HACK OPEN FONT LICENSE & BITSTREAM VERA LICENSE
-Bitstream Vera Sans Mono Copyright 2003 Bitstream, Inc. with Reserved Font Names Bitstream
-and Vera BITSTREAM VERA LICENSE
+Hack Open Font License & Bitstream Vera License
+Bitstream Vera Sans Mono Copyright 2003 Bitstream Inc. and licensed under 
+the Bitstream Vera License with Reserved Font Names "Bitstream" and "Vera"
    https://github.com/chrissimpkins/Hack/blob/master/LICENSE.md
    The license is distributed with this software as LICENSE-Hack.txt
-  
+   
 Lato
 Copyright (c) 2010-2015 by tyPoland Lukasz Dziedzic with Reserved Font Name "Lato". 
 Lato is a trademark of tyPoland Lukasz Dziedzic.
@@ -30,14 +31,13 @@ https://github.com/adobe-fonts/source-sans-pro
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
    https://github.com/adobe-fonts/source-sans-pro/blob/master/LICENSE.txt
    The license is distributed with this software as LICENSE-SourceSansPro.txt
-  
+   
 Roboto
 Christian Robertson
 https://github.com/google/roboto
 Licensed under the Apache License, Version 2.0
    http://www.apache.org/licenses/LICENSE-2.0 
    The license is distributed with this software as LICENSE-Apache-2.0.txt   
-
 
 InnoSetup
 Copyright (C) 1997-2016 Jordan Russell. All rights reserved.
@@ -46,7 +46,7 @@ http://www.jrsoftware.org/isinfo.php
 Licensed under the Inno Setup License
    http://www.jrsoftware.org/files/is/license.txt
    The license is distributed with this software as LICENSE-InnoSetup.txt
-   
+  
 Markdown files created with MarkdownPad
 Copyright © 2013-2015 Evan Wondrasek / Apricity Software LLC
 All Rights Reserved
