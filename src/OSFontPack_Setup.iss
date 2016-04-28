@@ -18,7 +18,7 @@
 //#define DEBUG
 
 //Update this when releasing a new version
-#define public Version '1.2.0'
+#define public Version '1.3.0'
 
 
 
@@ -53,7 +53,7 @@
 
 //Definition for Hack Font
 #define hack_component 'hack'
-#define hack_sourcefolder 'Hack_v2_019'
+#define hack_sourcefolder 'Hack_v2_020'
 #define hack_description 'Hack by Christopher Simpkins'
 #define hack_homepage 'https://github.com/chrissimpkins/Hack'
 
@@ -85,7 +85,7 @@
 
 //Definition for Roboto Font
 #define public roboto_component 'roboto'
-#define public roboto_sourcefolder 'Roboto_v2_131'
+#define public roboto_sourcefolder 'Roboto_v2_132_unhinted'
 #define roboto_description 'Roboto by Christian Robertson'
 #define roboto_homepage 'https://github.com/google/roboto'
 

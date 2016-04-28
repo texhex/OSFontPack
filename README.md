@@ -9,6 +9,8 @@ An installer for selected Open Source Fonts for Windows.
 * [Roboto by Christian Robertson](https://github.com/google/roboto)
 * [Source Sans Pro by Adobe Inc.](https://github.com/adobe-fonts/source-sans-pro)
 
+Note: If you want to install [Hack by Christopher Simpkins](https://github.com/chrissimpkins/Hack) only, there is a [dedicated installer](https://github.com/source-foundry/Hack-windows-installer/releases) for it.
+
 ## Usage
 
 - Download from [Releases](https://github.com/texhex/OSFontPack/releases/)
