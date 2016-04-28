@@ -18,7 +18,7 @@
 //#define DEBUG
 
 //Update this when releasing a new version
-#define public Version '1.3.0'
+#define public Version '1.3.1'
 
 
 
