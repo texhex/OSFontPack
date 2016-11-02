@@ -18,7 +18,7 @@
 //#define DEBUG
 
 //Update this when releasing a new version
-#define public Version '1.3.1'
+#define public Version '1.4.0'
 
 
 
@@ -85,7 +85,7 @@
 
 //Definition for Roboto Font
 #define public roboto_component 'roboto'
-#define public roboto_sourcefolder 'Roboto_v2_132_unhinted'
+#define public roboto_sourcefolder 'Roboto_v2_134_hinted'
 #define roboto_description 'Roboto by Christian Robertson'
 #define roboto_homepage 'https://github.com/google/roboto'
 

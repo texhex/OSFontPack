@@ -105,24 +105,24 @@
 ; hack: Hack_v2_020\Hack-BoldItalic.ttf - "Hack Bold Italic" (c428004a2fe3570450c6d03442052b1a9989c58b)
 ; hack: Hack_v2_020\Hack-Regular.ttf - "Hack" (664cfe2a64de1486c0ace8073ceeb6d9281e8b78)
 ; hack: Hack_v2_020\Hack-Italic.ttf - "Hack Italic" (efdae4b94858b98eab6dcf2cb8e3cc3d28263cc2)
-; roboto: Roboto_v2_132_unhinted\Roboto-Black.ttf - "Roboto Black" (860e9fdf338981c91d693dc4873fc6178cb9ef25)
-; roboto: Roboto_v2_132_unhinted\Roboto-BlackItalic.ttf - "Roboto Black Italic" (f01c66a3870d3851b731cbc26dde8fce3d55fb37)
-; roboto: Roboto_v2_132_unhinted\Roboto-Bold.ttf - "Roboto Bold" (40797239c990edc4b073d5d352de0324900d586f)
-; roboto: Roboto_v2_132_unhinted\Roboto-BoldItalic.ttf - "Roboto Bold Italic" (9ab9dd3696db3d1cc9c4c0483a05692b13757ea3)
-; roboto: Roboto_v2_132_unhinted\Roboto-Italic.ttf - "Roboto Italic" (9b6b49ddd397751586df6edcace0d666bb38c41a)
-; roboto: Roboto_v2_132_unhinted\Roboto-Light.ttf - "Roboto Light" (d2e0fc4a78086eb620b99ff73e9c0ac6350de412)
-; roboto: Roboto_v2_132_unhinted\Roboto-LightItalic.ttf - "Roboto Light Italic" (c5cc08fb3901609327a4644a499bca053badedee)
-; roboto: Roboto_v2_132_unhinted\Roboto-Medium.ttf - "Roboto Medium" (d3802bc8ed8482215478be7d75c84f5ec66faf9d)
-; roboto: Roboto_v2_132_unhinted\Roboto-MediumItalic.ttf - "Roboto Medium Italic" (2f1ea333f540f044a578d18ed350e9178b569f92)
-; roboto: Roboto_v2_132_unhinted\Roboto-Regular.ttf - "Roboto" (9c688370be417a15784f0165aef3aca63b306146)
-; roboto: Roboto_v2_132_unhinted\Roboto-Thin.ttf - "Roboto Thin" (d91f44e7418b668ac2e79f247853d5fd9e4e678e)
-; roboto: Roboto_v2_132_unhinted\Roboto-ThinItalic.ttf - "Roboto Thin Italic" (fa4effa7ea4e0a2efda2124bde2be343415de66f)
-; roboto: Roboto_v2_132_unhinted\RobotoCondensed-Regular.ttf - "Roboto Condensed" (98f13c2542735c271ca9326be5e478a682aca807)
-; roboto: Roboto_v2_132_unhinted\RobotoCondensed-Bold.ttf - "Roboto Condensed Bold" (f8c11344e52f15ce854411b5841198c76a62401f)
-; roboto: Roboto_v2_132_unhinted\RobotoCondensed-BoldItalic.ttf - "Roboto Condensed Bold Italic" (01f94d4d186e8c322aa0382f95521438e0036731)
-; roboto: Roboto_v2_132_unhinted\RobotoCondensed-Italic.ttf - "Roboto Condensed Italic" (0d6410fcbdc54f6e4557e1970d79b3278b3a2674)
-; roboto: Roboto_v2_132_unhinted\RobotoCondensed-Light.ttf - "Roboto Condensed Light" (54198575013a246cedf884c411ef971a73aa5049)
-; roboto: Roboto_v2_132_unhinted\RobotoCondensed-LightItalic.ttf - "Roboto Condensed Light Italic" (9c3e902bf129e9c7691d93bf990004a17cc31af0)
+; roboto: Roboto_v2_134_hinted\Roboto-Black.ttf - "Roboto Black" (14fce672de681bbfa8c133a12507b95f44a5e49d)
+; roboto: Roboto_v2_134_hinted\Roboto-BlackItalic.ttf - "Roboto Black Italic" (61098f8916fcccf26c50fc4c26ed0b496d98c568)
+; roboto: Roboto_v2_134_hinted\Roboto-Bold.ttf - "Roboto Bold" (2eccc1d5b5f548d90238611d73e2ea9e24943cde)
+; roboto: Roboto_v2_134_hinted\Roboto-BoldItalic.ttf - "Roboto Bold Italic" (03b6537dd7039271fbe7e9f4db43f4d8be80bd11)
+; roboto: Roboto_v2_134_hinted\Roboto-Italic.ttf - "Roboto Italic" (64bceafb69aff48ba2560e36ed59274566f3c956)
+; roboto: Roboto_v2_134_hinted\Roboto-Light.ttf - "Roboto Light" (f7ef42587ecbb554d99396ed18813a43c2946842)
+; roboto: Roboto_v2_134_hinted\Roboto-LightItalic.ttf - "Roboto Light Italic" (8cc6e8e64f7cae56da4fa6c7562bfa864f288a9d)
+; roboto: Roboto_v2_134_hinted\Roboto-Medium.ttf - "Roboto Medium" (1584840d92b9d742f05e4fc2fa9b7ce041f47283)
+; roboto: Roboto_v2_134_hinted\Roboto-MediumItalic.ttf - "Roboto Medium Italic" (f77118eba3e0f25445e19063e0c57fe75675dc85)
+; roboto: Roboto_v2_134_hinted\Roboto-Regular.ttf - "Roboto" (73bf2e3773ca9ca37ccebe0251eef9da03234833)
+; roboto: Roboto_v2_134_hinted\Roboto-Thin.ttf - "Roboto Thin" (4d49ee1daad4d38b1e89027a48aeceaea00fbc48)
+; roboto: Roboto_v2_134_hinted\Roboto-ThinItalic.ttf - "Roboto Thin Italic" (e57d82e8fa22a7d30a2506c143a6fc1f793cde2e)
+; roboto: Roboto_v2_134_hinted\RobotoCondensed-Regular.ttf - "Roboto Condensed" (12ed3974b3d21aced8725c9d8f451e96fb9ae1aa)
+; roboto: Roboto_v2_134_hinted\RobotoCondensed-Bold.ttf - "Roboto Condensed Bold" (20e492aed421d68b4cf1a577eb6fb9895ec46283)
+; roboto: Roboto_v2_134_hinted\RobotoCondensed-BoldItalic.ttf - "Roboto Condensed Bold Italic" (b3b4394b374ce89cee17dc4ae2217f4991a1c770)
+; roboto: Roboto_v2_134_hinted\RobotoCondensed-Italic.ttf - "Roboto Condensed Italic" (49800f1d4efa00abc0dfd4818ff60be0354347bd)
+; roboto: Roboto_v2_134_hinted\RobotoCondensed-Light.ttf - "Roboto Condensed Light" (c7e65560d85a927f898078e91d2522f2111a47f9)
+; roboto: Roboto_v2_134_hinted\RobotoCondensed-LightItalic.ttf - "Roboto Condensed Light Italic" (6718da83b0d3425e622b8625a39ee1fb5044b77a)
 ; lato: Lato_v2_015\Lato-Black.ttf - "Lato Black" (b9c952639741f5b7479e1ff6d1561a3df7e8f83a)
 ; lato: Lato_v2_015\Lato-BlackItalic.ttf - "Lato Black Italic" (4bde1231ff7afccfdf4f77f086c0e9a93a4f3e46)
 ; lato: Lato_v2_015\Lato-Bold.ttf - "Lato Bold" (6b2c7b124cbf0aaeba48d57fb0fa19f2c6c69683)
@@ -179,8 +179,8 @@ AppId=OSFontPack
 SetupMutex=OSFontPack_Setup_Mutex 
 
 AppName=Open Source Font Pack
-AppVersion=1.3.1
-VersionInfoVersion=1.3.1
+AppVersion=1.4.0
+VersionInfoVersion=1.4.0
 
 AppPublisher=Michael 'Tex' Hex
 AppSupportURL=https://github.com/texhex/OSFontPack
@@ -256,24 +256,24 @@ Source: "licenses/*.*"; DestDir: "{app}"; Flags: ignoreversion;
   Source: "fonts\Hack_v2_020\Hack-BoldItalic.ttf"; FontInstall: "Hack Bold Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Hack_v2_020\Hack-Regular.ttf"; FontInstall: "Hack"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Hack_v2_020\Hack-Italic.ttf"; FontInstall: "Hack Italic"; Components: hack; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-Black.ttf"; FontInstall: "Roboto Black"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-BlackItalic.ttf"; FontInstall: "Roboto Black Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-Bold.ttf"; FontInstall: "Roboto Bold"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-BoldItalic.ttf"; FontInstall: "Roboto Bold Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-Italic.ttf"; FontInstall: "Roboto Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-Light.ttf"; FontInstall: "Roboto Light"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-LightItalic.ttf"; FontInstall: "Roboto Light Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-Medium.ttf"; FontInstall: "Roboto Medium"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-MediumItalic.ttf"; FontInstall: "Roboto Medium Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-Regular.ttf"; FontInstall: "Roboto"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-Thin.ttf"; FontInstall: "Roboto Thin"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\Roboto-ThinItalic.ttf"; FontInstall: "Roboto Thin Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\RobotoCondensed-Regular.ttf"; FontInstall: "Roboto Condensed"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\RobotoCondensed-Bold.ttf"; FontInstall: "Roboto Condensed Bold"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\RobotoCondensed-BoldItalic.ttf"; FontInstall: "Roboto Condensed Bold Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\RobotoCondensed-Italic.ttf"; FontInstall: "Roboto Condensed Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\RobotoCondensed-Light.ttf"; FontInstall: "Roboto Condensed Light"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
-  Source: "fonts\Roboto_v2_132_unhinted\RobotoCondensed-LightItalic.ttf"; FontInstall: "Roboto Condensed Light Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-Black.ttf"; FontInstall: "Roboto Black"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-BlackItalic.ttf"; FontInstall: "Roboto Black Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-Bold.ttf"; FontInstall: "Roboto Bold"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-BoldItalic.ttf"; FontInstall: "Roboto Bold Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-Italic.ttf"; FontInstall: "Roboto Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-Light.ttf"; FontInstall: "Roboto Light"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-LightItalic.ttf"; FontInstall: "Roboto Light Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-Medium.ttf"; FontInstall: "Roboto Medium"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-MediumItalic.ttf"; FontInstall: "Roboto Medium Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-Regular.ttf"; FontInstall: "Roboto"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-Thin.ttf"; FontInstall: "Roboto Thin"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\Roboto-ThinItalic.ttf"; FontInstall: "Roboto Thin Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\RobotoCondensed-Regular.ttf"; FontInstall: "Roboto Condensed"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\RobotoCondensed-Bold.ttf"; FontInstall: "Roboto Condensed Bold"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\RobotoCondensed-BoldItalic.ttf"; FontInstall: "Roboto Condensed Bold Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\RobotoCondensed-Italic.ttf"; FontInstall: "Roboto Condensed Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\RobotoCondensed-Light.ttf"; FontInstall: "Roboto Condensed Light"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
+  Source: "fonts\Roboto_v2_134_hinted\RobotoCondensed-LightItalic.ttf"; FontInstall: "Roboto Condensed Light Italic"; Components: roboto; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Lato_v2_015\Lato-Black.ttf"; FontInstall: "Lato Black"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Lato_v2_015\Lato-BlackItalic.ttf"; FontInstall: "Lato Black Italic"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
   Source: "fonts\Lato_v2_015\Lato-Bold.ttf"; FontInstall: "Lato Bold"; Components: lato; DestDir: "{fonts}"; Check: FontFileInstallationRequired; Flags: ignoreversion restartreplace; 
@@ -375,7 +375,7 @@ Type: files; Name: "{fonts}\Hack-RegularOblique.ttf"; Components: hack;
  
 [INI]
 ;Create an ini to make detection for enterprise deployment tools easy
-Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "1.3.1"
+Filename: "{app}\InstallInfo.ini"; Section: "Main"; Key: "Version"; String: "1.4.0"
 
 [UninstallDelete]
 ;Delete Install Info
@@ -586,24 +586,24 @@ begin
   AddFontData('hack', 'Hack-BoldItalic.ttf', 'Hack Bold Italic', 'c428004a2fe3570450c6d03442052b1a9989c58b');
   AddFontData('hack', 'Hack-Regular.ttf', 'Hack', '664cfe2a64de1486c0ace8073ceeb6d9281e8b78');
   AddFontData('hack', 'Hack-Italic.ttf', 'Hack Italic', 'efdae4b94858b98eab6dcf2cb8e3cc3d28263cc2');
-  AddFontData('roboto', 'Roboto-Black.ttf', 'Roboto Black', '860e9fdf338981c91d693dc4873fc6178cb9ef25');
-  AddFontData('roboto', 'Roboto-BlackItalic.ttf', 'Roboto Black Italic', 'f01c66a3870d3851b731cbc26dde8fce3d55fb37');
-  AddFontData('roboto', 'Roboto-Bold.ttf', 'Roboto Bold', '40797239c990edc4b073d5d352de0324900d586f');
-  AddFontData('roboto', 'Roboto-BoldItalic.ttf', 'Roboto Bold Italic', '9ab9dd3696db3d1cc9c4c0483a05692b13757ea3');
-  AddFontData('roboto', 'Roboto-Italic.ttf', 'Roboto Italic', '9b6b49ddd397751586df6edcace0d666bb38c41a');
-  AddFontData('roboto', 'Roboto-Light.ttf', 'Roboto Light', 'd2e0fc4a78086eb620b99ff73e9c0ac6350de412');
-  AddFontData('roboto', 'Roboto-LightItalic.ttf', 'Roboto Light Italic', 'c5cc08fb3901609327a4644a499bca053badedee');
-  AddFontData('roboto', 'Roboto-Medium.ttf', 'Roboto Medium', 'd3802bc8ed8482215478be7d75c84f5ec66faf9d');
-  AddFontData('roboto', 'Roboto-MediumItalic.ttf', 'Roboto Medium Italic', '2f1ea333f540f044a578d18ed350e9178b569f92');
-  AddFontData('roboto', 'Roboto-Regular.ttf', 'Roboto', '9c688370be417a15784f0165aef3aca63b306146');
-  AddFontData('roboto', 'Roboto-Thin.ttf', 'Roboto Thin', 'd91f44e7418b668ac2e79f247853d5fd9e4e678e');
-  AddFontData('roboto', 'Roboto-ThinItalic.ttf', 'Roboto Thin Italic', 'fa4effa7ea4e0a2efda2124bde2be343415de66f');
-  AddFontData('roboto', 'RobotoCondensed-Regular.ttf', 'Roboto Condensed', '98f13c2542735c271ca9326be5e478a682aca807');
-  AddFontData('roboto', 'RobotoCondensed-Bold.ttf', 'Roboto Condensed Bold', 'f8c11344e52f15ce854411b5841198c76a62401f');
-  AddFontData('roboto', 'RobotoCondensed-BoldItalic.ttf', 'Roboto Condensed Bold Italic', '01f94d4d186e8c322aa0382f95521438e0036731');
-  AddFontData('roboto', 'RobotoCondensed-Italic.ttf', 'Roboto Condensed Italic', '0d6410fcbdc54f6e4557e1970d79b3278b3a2674');
-  AddFontData('roboto', 'RobotoCondensed-Light.ttf', 'Roboto Condensed Light', '54198575013a246cedf884c411ef971a73aa5049');
-  AddFontData('roboto', 'RobotoCondensed-LightItalic.ttf', 'Roboto Condensed Light Italic', '9c3e902bf129e9c7691d93bf990004a17cc31af0');
+  AddFontData('roboto', 'Roboto-Black.ttf', 'Roboto Black', '14fce672de681bbfa8c133a12507b95f44a5e49d');
+  AddFontData('roboto', 'Roboto-BlackItalic.ttf', 'Roboto Black Italic', '61098f8916fcccf26c50fc4c26ed0b496d98c568');
+  AddFontData('roboto', 'Roboto-Bold.ttf', 'Roboto Bold', '2eccc1d5b5f548d90238611d73e2ea9e24943cde');
+  AddFontData('roboto', 'Roboto-BoldItalic.ttf', 'Roboto Bold Italic', '03b6537dd7039271fbe7e9f4db43f4d8be80bd11');
+  AddFontData('roboto', 'Roboto-Italic.ttf', 'Roboto Italic', '64bceafb69aff48ba2560e36ed59274566f3c956');
+  AddFontData('roboto', 'Roboto-Light.ttf', 'Roboto Light', 'f7ef42587ecbb554d99396ed18813a43c2946842');
+  AddFontData('roboto', 'Roboto-LightItalic.ttf', 'Roboto Light Italic', '8cc6e8e64f7cae56da4fa6c7562bfa864f288a9d');
+  AddFontData('roboto', 'Roboto-Medium.ttf', 'Roboto Medium', '1584840d92b9d742f05e4fc2fa9b7ce041f47283');
+  AddFontData('roboto', 'Roboto-MediumItalic.ttf', 'Roboto Medium Italic', 'f77118eba3e0f25445e19063e0c57fe75675dc85');
+  AddFontData('roboto', 'Roboto-Regular.ttf', 'Roboto', '73bf2e3773ca9ca37ccebe0251eef9da03234833');
+  AddFontData('roboto', 'Roboto-Thin.ttf', 'Roboto Thin', '4d49ee1daad4d38b1e89027a48aeceaea00fbc48');
+  AddFontData('roboto', 'Roboto-ThinItalic.ttf', 'Roboto Thin Italic', 'e57d82e8fa22a7d30a2506c143a6fc1f793cde2e');
+  AddFontData('roboto', 'RobotoCondensed-Regular.ttf', 'Roboto Condensed', '12ed3974b3d21aced8725c9d8f451e96fb9ae1aa');
+  AddFontData('roboto', 'RobotoCondensed-Bold.ttf', 'Roboto Condensed Bold', '20e492aed421d68b4cf1a577eb6fb9895ec46283');
+  AddFontData('roboto', 'RobotoCondensed-BoldItalic.ttf', 'Roboto Condensed Bold Italic', 'b3b4394b374ce89cee17dc4ae2217f4991a1c770');
+  AddFontData('roboto', 'RobotoCondensed-Italic.ttf', 'Roboto Condensed Italic', '49800f1d4efa00abc0dfd4818ff60be0354347bd');
+  AddFontData('roboto', 'RobotoCondensed-Light.ttf', 'Roboto Condensed Light', 'c7e65560d85a927f898078e91d2522f2111a47f9');
+  AddFontData('roboto', 'RobotoCondensed-LightItalic.ttf', 'Roboto Condensed Light Italic', '6718da83b0d3425e622b8625a39ee1fb5044b77a');
   AddFontData('lato', 'Lato-Black.ttf', 'Lato Black', 'b9c952639741f5b7479e1ff6d1561a3df7e8f83a');
   AddFontData('lato', 'Lato-BlackItalic.ttf', 'Lato Black Italic', '4bde1231ff7afccfdf4f77f086c0e9a93a4f3e46');
   AddFontData('lato', 'Lato-Bold.ttf', 'Lato Bold', '6b2c7b124cbf0aaeba48d57fb0fa19f2c6c69683');
